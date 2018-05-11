@@ -50,7 +50,7 @@ getProducer(kafka_pconfig1,kafka_pconfig2,(err)=> {
 }).then((producer)=>{
   let icount = 0;
 
-  setInterval(()=>{
+  // setInterval(()=>{
     try {
         let senddata = _.clone(jsondata);
         const stringdata = JSON.stringify(senddata);
@@ -61,6 +61,6 @@ getProducer(kafka_pconfig1,kafka_pconfig2,(err)=> {
         debug('A problem occurred when sending our message')
         debug(err)
       }
-  },0);
+  // },0);
 
 });
