@@ -9,8 +9,9 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "node-rdkafka": "^2.2.2",
+    "debug": "^3.1.0",
     "lodash": "^4.17.10",
-    "moment": "^2.22.1"
+    "moment": "^2.22.1",
+    "node-rdkafka": "^2.2.2"
   }
 }

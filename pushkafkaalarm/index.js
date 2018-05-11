@@ -1,12 +1,13 @@
 const moment = require('moment');
 const getProducer  = require('./src/rkafka/p.js');
 const _ = require('lodash');
+const debug = require('debug');
 const topicname = process.env.IndexTopic ||'CRM_ALARM_INFO_L1_TEST';
 
-console.log(`topicname:${topicname}`);
+debug(`topicname:${topicname}`);
 
 const kafka_pconfig1 = {
-  'metadata.broker.list': process.env.KAFKA_HOST || '192.168.1.20:9092,192.168.1.114:9092,192.168.1.136:9092',
+  'metadata.broker.list': process.env.KAFKA_HOST || '192.168.2.11:9092,192.168.2.12:9092,192.168.2.13:9092',
 };
 const kafka_pconfig2 = {
 };
@@ -42,10 +43,10 @@ let jsondata =
 
 
 getProducer(kafka_pconfig1,kafka_pconfig2,(err)=> {
-  console.error(`---uncaughtException err`);
-  console.error(err);
-  console.error(err.stack);
-  console.error(`uncaughtException err---`);
+  debug(`---uncaughtException err`);
+  debug(err);
+  debug(err.stack);
+  debug(`uncaughtException err---`);
 }).then((producer)=>{
   let icount = 0;
 
@@ -55,10 +56,10 @@ getProducer(kafka_pconfig1,kafka_pconfig2,(err)=> {
         const stringdata = JSON.stringify(senddata);
 
         producer.produce(topicname, -1, new Buffer(stringdata),icount);
-        console.log(`send message,sn:${senddata.SN64}`);
+        debug(`send message===>${stringdata}`);
       } catch (err) {
-        console.error('A problem occurred when sending our message')
-        console.error(err)
+        debug('A problem occurred when sending our message')
+        debug(err)
       }
   },0);
 
