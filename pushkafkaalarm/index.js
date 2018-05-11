@@ -1,7 +1,7 @@
 const moment = require('moment');
 const getProducer  = require('./src/rkafka/p.js');
 const _ = require('lodash');
-const debug = require('debug');
+const debug = require('debug')('srv:index');
 const topicname = process.env.IndexTopic ||'CRM_ALARM_INFO_L1_TEST';
 
 debug(`topicname:${topicname}`);
