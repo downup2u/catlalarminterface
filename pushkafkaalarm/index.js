@@ -7,7 +7,7 @@ const topicname = process.env.IndexTopic ||'CRM_ALARM_INFO_L1_TEST';
 debug(`topicname:${topicname}`);
 
 const kafka_pconfig1 = {
-  'metadata.broker.list': process.env.KAFKA_HOST || '192.168.2.11:9092,192.168.2.12:9092,192.168.2.13:9092',
+  'metadata.broker.list': process.env.KAFKA_HOST || '172.26.175.131:9092,172.26.175.132:9092,172.26.175.133:9092',
 };
 const kafka_pconfig2 = {
 };
