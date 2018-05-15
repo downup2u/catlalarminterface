@@ -3,7 +3,7 @@ const getProducer  = require('./src/rkafka/p.js');
 const _ = require('lodash');
 const debug = require('debug')('srv:index');
 const topicname = process.env.IndexTopic ||'CRM_ALARM_INFO_L1_TEST';
-
+const uuidv1 = require('uuid/v1');
 debug(`topicname:${topicname}`);
 
 const kafka_pconfig1 = {
@@ -14,7 +14,7 @@ const kafka_pconfig2 = {
 
 let jsondata =
 {
-	"_id": "5ad7219e1c52e8c471efb676",
+	"id": "5ad7219e1c52e8c471efb676",
 	"CurDayHour": "2018041916",
 	"DeviceId": "1724102895",
 	"Latitude": "27.877929",
@@ -53,9 +53,10 @@ getProducer(kafka_pconfig1,kafka_pconfig2,(err)=> {
   // setInterval(()=>{
     try {
         let senddata = _.clone(jsondata);
+        senddata.id = uuidv1();
         const stringdata = JSON.stringify(senddata);
 
-        producer.produce(topicname, -1, new Buffer(stringdata),icount);
+        producer.produce(topicname, -1, new Buffer(stringdata),senddata.id);
         debug(`send message===>${stringdata}`);
       } catch (err) {
         debug('A problem occurred when sending our message')
