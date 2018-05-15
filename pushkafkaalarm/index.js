@@ -53,7 +53,7 @@ getProducer(kafka_pconfig1,kafka_pconfig2,(err)=> {
   // setInterval(()=>{
     try {
         let senddata = _.clone(jsondata);
-        senddata.id = uuidv1();
+        senddata.id = `${senddata.DeviceId}${senddata.CurDayHour}`;
         const stringdata = JSON.stringify(senddata);
 
         producer.produce(topicname, -1, new Buffer(stringdata),senddata.id);
