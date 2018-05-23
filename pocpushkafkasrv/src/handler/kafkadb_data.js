@@ -5,7 +5,6 @@ const config = require('../config.js');
 const moment = require('moment');
 const alarmplugin = require('../plugins/alarmfilter/index');
 const deviceplugin = require('../plugins/devicefilter/index');
-const utilposition = require('./util_position');
 const debug = require('debug')('dbdata');
 
 const getdbdata_alarm = (devicedata,callbackfn)=>{
@@ -146,7 +145,7 @@ const parseKafkaMsgs = (kafkamsgs,callbackfn)=>{
   });
   debug(`start parseKafkaMsgs->${fnsz.length}`);
   async.parallel(fnsz,(err,result)=>{
-    debug(`stop parseKafkaMsgs`);
+    debug(`stop parseKafkaMsgs-->`);
     callbackfn(resultmsglist);//会导致乱序
   });
 }

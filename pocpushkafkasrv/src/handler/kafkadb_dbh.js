@@ -51,7 +51,7 @@ const onHandleToDB_alarm = (allresult,callbackfn)=>{
 
 const onHandleToDB = (allresultin,callbackfn)=>{
   onHandleToDB_alarm(allresultin,(err,allresult)=>{
-
+    callbackfn(err,allresult);
   });
 
 };

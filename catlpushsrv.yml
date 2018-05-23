@@ -1,0 +1,27 @@
+version: '2'
+services:
+  catlpushsrv:
+    image: node:6.11.2
+    restart: always
+    command: node ./index.js
+    working_dir: /app
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - ./pocpushkafkasrv:/app
+      - ./log:/log
+      - ./pocpushkafkasrv/node_docker:/app/node_modules/node-rdkafka/build/Release
+    environment:
+      - DEBUG=*,-mquery
+      - DEBUG_COLORS=1
+      - KAFKA_HOST_C=192.168.2.11:9092,192.168.2.12:9092,192.168.2.13:9092
+      - KAFKA_HOST_P=192.168.2.11:9092,192.168.2.12:9092,192.168.2.13:9092
+      - mongos=true
+      - MONGO_URL=mongodb://192.168.2.17:27007,192.168.2.18:27007/bmscatl?readPreference=secondaryPreferred
+      - logdir=/log
+      - NodeID=211
+      - kcmsg=1000
+      - TopicC=pbmsindex
+      - TopicP1=CRM_ALARM_INFO_L1_TEST
+      - TopicP2=CRM_ALARM_INFO_L2_TEST
+      - TopicP3=CRM_ALARM_INFO_L3_TEST
+    network_mode: "host"
