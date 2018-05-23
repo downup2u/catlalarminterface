@@ -1,8 +1,7 @@
 const config =  {
   listenport:process.env.listenport||3005,
-  rooturl:process.env.rooturl || 'http://magicalcat.codemao.cn',
   issmsdebug:process.env.issmsdebug || false,
-
+  secretkey:'catltestrestful',
   publishdiradmin:'../../dist/admin',
   uploaddir:'../../dist/uploader',
   uploadurl:'/uploader',
@@ -11,7 +10,7 @@ const config =  {
   publicdir:'../../dist/public',
   publicurl:'/public',
     // ...
-  mongodburl:process.env.MONGO_URL || `mongodb://tmcatuser:tmcat159@127.0.0.1/tmcat`,
+  mongodburl:process.env.MONGO_URL || 'mongodb://192.168.2.17:27007,192.168.2.18:27007/bmscatl?readPreference=secondaryPreferred',
 
 };
 
