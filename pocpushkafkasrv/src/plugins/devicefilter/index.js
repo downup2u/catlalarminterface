@@ -19,12 +19,17 @@ const devicedatapile = (data)=>{
     const CANType = _.get(data,'BMSData.CANType',-1);
     let newAlarm = _.clone(Alarm);
     newAlarm = _.omit(newAlarm,['AL_TROUBLE_CODE_2']);
+    let TROUBLE_CODE_LIST = [];
     _.map(AL_TROUBLE_CODE_2,(errcode)=>{
       const fieldname = getFieldname(CANType,errcode);
       newAlarm[fieldname] = 1;
+      TROUBLE_CODE_LIST.push({
+        errorcode:errcode,
+        fieldname
+      })
     });
     _.set(newdata,'BMSData.Alarm',newAlarm);
-    _.set(newdata,'BMSData.Alarm.TROUBLE_CODE_LIST',AL_TROUBLE_CODE_2);//新增一个字段TROUBLE_CODE_LIST
+    _.set(newdata,'BMSData.Alarm.TROUBLE_CODE_LIST',TROUBLE_CODE_LIST);//新增一个字段TROUBLE_CODE_LIST
     debug(`newdata--->${JSON.stringify(newAlarm)}`);
   }
   return newdata;

@@ -91,6 +91,7 @@ const getresultalarmmatch = (alarmdata,alarmrules)=>{
         if(rule.op === '='){
           if(valueint == v){
             resultalarmmatch.push({
+              fieldname:key,
               warninglevel:_.get(valarmrules,'warninglevel'),
               alarmtxt:_.get(rule,'content','')
             });
@@ -99,6 +100,7 @@ const getresultalarmmatch = (alarmdata,alarmrules)=>{
         else if(rule.op === '>'){
           if(v > valueint){
             resultalarmmatch.push({
+              fieldname:key,
               warninglevel:_.get(valarmrules,'warninglevel'),
               alarmtxt:_.get(rule,'content','')
             });
@@ -107,6 +109,7 @@ const getresultalarmmatch = (alarmdata,alarmrules)=>{
         else if(rule.op === '<'){
           if(v < valueint){
             resultalarmmatch.push({
+              fieldname:key,
               warninglevel:_.get(valarmrules,'warninglevel'),
               alarmtxt:_.get(rule,'content','')
             });
@@ -195,12 +198,14 @@ const dofilter= (DeviceId,LastRealtimeAlarm,callback)=>{
       DeviceId,
       CurDayHour,
       inc_data,
+
     });
     return;
   }
   callback(null,{
     DeviceId,
     CurDayHour,
+    
   });
 
 }

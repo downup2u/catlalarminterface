@@ -7,6 +7,12 @@ const alarmplugin = require('../plugins/alarmfilter/index');
 const deviceplugin = require('../plugins/devicefilter/index');
 const debug = require('debug')('dbdata');
 
+const warninglevelmap = {
+  '高':3,
+  '中':2,
+  '低':1
+};
+
 const getdbdata_alarm = (devicedata,callbackfn)=>{
   const LastRealtimeAlarm = _.get(devicedata,'LastRealtimeAlarm');
   const LastHistoryTrack = _.get(devicedata,'LastHistoryTrack');
@@ -17,10 +23,11 @@ const getdbdata_alarm = (devicedata,callbackfn)=>{
       if(!err && !!result_alarm){
         //含有报警信息
         let updatedset = {
+          id:`${result_alarm.CurDayHour}${result_alarm.DeviceId}`,
           CurDayHour:result_alarm.CurDayHour,
           DeviceId:result_alarm.DeviceId,
           DataTime:LastRealtimeAlarm.DataTime,
-          warninglevel:devicedata.warninglevel,//<---------注意！！！
+          warninglevel:_.get(warninglevelmap,`${devicedata.warninglevel}`, 0),//<---------注意！！！
           NodeID:config.NodeID,
           SN64:devicedata.SN64,
           UpdateTime:moment().format('YYYY-MM-DD HH:mm:ss'),
@@ -37,8 +44,41 @@ const getdbdata_alarm = (devicedata,callbackfn)=>{
         }
         //{ $addToSet: { tags: { $each: [ "camera", "electronics", "accessories" ] } } }
         const TROUBLE_CODE_LIST = _.get(LastRealtimeAlarm,'Alarm.TROUBLE_CODE_LIST',[]);
-        updated_data["$addToSet"] = { TROUBLE_CODE_LIST: { $each: TROUBLE_CODE_LIST} } ;
+        const AlarmWarning = devicedata.resultalarmmatch || [];
+        let mapFieldName = {};
 
+        let Details = [];
+        _.map(AlarmWarning,(v)=>{
+          /*
+           "alarmtxt" : "均衡电路故障",
+           "warninglevel" : "中",
+           "fieldname" : "AL_ERR_BAL_CIRCUIT"
+          */
+          mapFieldName[v.fieldname] = {
+            id:v.fieldname,
+            description:config.mapdict[v.fieldname] ||  _.get(v,'alarmtxt',''),
+            warninglevel:_.get(warninglevelmap,`${v.warninglevel}`, 0),
+          }
+        });
+
+        _.map(TROUBLE_CODE_LIST,(v)=>{
+          const value = mapFieldName[v.fieldname];
+          if(!!value){
+            const {id,description,warninglevel} = value;
+            if(warninglevel > 0){
+              Details.push({
+                id,
+                description,
+                errorcode:`${v.errorcode}`,
+                warninglevel,
+              });
+            }
+          }
+        });
+
+        updated_data["$addToSet"] = {
+          Details: { $each: Details},
+         };
         callbackfn(updated_data);
         return;
       }
@@ -79,6 +119,7 @@ const getindexmsgs = (data,callbackfn)=>{
     if(resultalarmmatch.length > 0){
       devicedata.warninglevel = resultalarmmatch[0].warninglevel;
     }
+    devicedata.resultalarmmatch = resultalarmmatch;
 
     //------取最大的warninglevel
     let level = {
@@ -133,7 +174,9 @@ const parseKafkaMsgs = (kafkamsgs,callbackfn)=>{
   const fnsz = [];
   _.map(msgs,(msg)=>{
     fnsz.push((callbackfn)=>{
+      debug(`msg--->${JSON.stringify(msg)}`)
       getindexmsgs(msg,(newdevicedata)=>{//获得warninglevel
+        debug(`newdevicedata--->${JSON.stringify(newdevicedata)}`)
           getdbdata_alarm(newdevicedata,(data_alarm)=>{//准备数据updatedset
              if(!!data_alarm){
                resultmsglist['alarm'].push(data_alarm);
