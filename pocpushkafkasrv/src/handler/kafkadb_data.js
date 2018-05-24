@@ -75,7 +75,9 @@ const getdbdata_alarm = (devicedata,callbackfn)=>{
             }
           }
         });
-
+        updated_data["$setOnInsert"] = {
+          FirstAlarmTime:LastRealtimeAlarm.DataTime,
+        };
         updated_data["$addToSet"] = {
           Details: { $each: Details},
          };

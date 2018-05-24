@@ -2,12 +2,19 @@ const config = require('../config.js');
 const debug  = require('debug')('srvapp:index');
 const mongoose     = require('mongoose');
 const _ = require("lodash");
+const moment = require('moment');
 const jwt = require('jsonwebtoken');
+const pwd = require('../util/pwd.js');
 //设备
 const Schema       = mongoose.Schema;
 const DeviceSchema = new Schema({
 }, { strict: false });
 const DeviceModel =mongoose.model('device',  DeviceSchema);
+
+//用户
+const UserSchema = new Schema({
+}, { strict: false });
+const UserModel =mongoose.model('user',  UserSchema);
 
 const middlewareauth = (req,res,next)=>{
   ////console.log("in middlewareauth");
@@ -32,15 +39,64 @@ const middlewareauth = (req,res,next)=>{
     }
 
 };
-const startviews = (app)=>{
 
+
+
+const loginuser = (actiondata,callback)=>{
+  const oneUser = actiondata;
+  const dbModel = UserModel;
+  dbModel.findOne({ username: oneUser.username },{
+    'passwordsalt':1,
+    'passwordhash':1
+  }).lean().exec((err, user)=> {
+    if (!!err) {
+      callback({
+        loginsuccess:false,
+        errmsg:err.message
+      });
+      return;
+    }
+    if (!user) {
+      callback({
+        loginsuccess:false,
+        errmsg:'用户不存在'
+      });
+      return;
+    }
+    console.log(user);
+    pwd.hashPassword(oneUser.password, user.passwordsalt, (err, passwordHash)=> {
+      console.log(passwordHash);
+      if(!err && !!passwordHash){
+        if (passwordHash === user.passwordhash) {
+          const loginuserexptime = 60*60*24;//24 hours
+          const token =  jwt.sign({
+                 exp: Math.floor(Date.now() / 1000) + loginuserexptime,
+                 _id:user._id,
+               },config.secretkey, {});
+          callback({
+            loginsuccess:true,
+            token
+          });
+          return;
+        }
+      }
+      callback({
+        loginsuccess:false,
+        errmsg:'用户名或密码错误'
+      });
+    });
+  });
+}
+const startviews = (app)=>{
+  //http://localhost:3005/apicatl/login
   app.post('/apicatl/login', (req, res)=> {
-    debug(`/apicatl/login`);
-    res.status(200)
-        .json({
-        	loginsuccess:true,
-        	token:'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE1MjgwMDI0NTUsIl9pZCI6IjVhY2RhMmViMzAzMmJjMjljMjFhOTEwZCIsImlhdCI6MTUyNTQxMDQ1NX0.ax5ChEGGbLQATSeXi7Zm1gBVsv3TefCuaPYuDGzbnmA'
-        });
+    const actiondata = req.body;
+    debug(`/apicatl/login:${JSON.stringify(actiondata)}`);
+    loginuser(actiondata,(resultjson)=>{
+      res.status(200)
+          .json(resultjson);
+    });
+
 	});
 
   app.get('/apicatl/location',middlewareauth,(req, res)=> {//middlewareauth,
