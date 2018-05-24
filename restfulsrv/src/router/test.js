@@ -75,7 +75,8 @@ const loginuser = (actiondata,callback)=>{
                },config.secretkey, {});
           callback({
             loginsuccess:true,
-            token
+            token,
+            expsec:loginuserexptime
           });
           return;
         }
