@@ -75,12 +75,22 @@ const getdbdata_alarm = (devicedata,callbackfn)=>{
             }
           }
         });
-        updated_data["$setOnInsert"] = {
+        let objSetOnInsert =  {
           FirstAlarmTime:LastRealtimeAlarm.DataTime,
+          isPushed:false
         };
+
+        const cityinfo = config.mapdevicecity[devicedata.DeviceId];
+        if(!!cityinfo){
+          objSetOnInsert['citycode'] = _.get(cityinfo,'citycode','');
+          objSetOnInsert['adcode'] = _.get(cityinfo,'targetadcode','');
+          objSetOnInsert['cityname'] = _.get(cityinfo,'cityname','');
+        }
+
+        updated_data["$setOnInsert"] = objSetOnInsert;
         updated_data["$addToSet"] = {
           Details: { $each: Details},
-         };
+        };
         callbackfn(updated_data);
         return;
       }

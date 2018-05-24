@@ -163,7 +163,7 @@ const getCurHour = (DataTime)=>{
   // const SpecialCurHourTime = moment(DataTime).format('YYYY-MM-DD') + config.SpecialCurHourTime;
   // return moment(DataTime).format('YYYY-MM-DD');//SpecialCurHourTime;
   const momentDatetime = moment(DataTime);
-  const CurDayHour = momentDatetime.format('YYYYMMDDHHmm');
+  const CurDayHour = momentDatetime.format('YYYYMMDDHH');
 
   //算今天
   // debug(`DataTime:${DataTime},统计入:${CurDayHour}中`);
@@ -205,7 +205,7 @@ const dofilter= (DeviceId,LastRealtimeAlarm,callback)=>{
   callback(null,{
     DeviceId,
     CurDayHour,
-    
+
   });
 
 }

@@ -1,7 +1,7 @@
 const srvhttp = require('./src/srvhttp.js');
 const config = require('./src/config');
 const mongoose     = require('mongoose');
-const jwt = require('jsonwebtoken');
+// const jwt = require('jsonwebtoken');
 
 mongoose.Promise = global.Promise;
 mongoose.connect(config.mongodburl,{
@@ -15,9 +15,9 @@ mongoose.connect(config.mongodburl,{
     reconnectTries: Number.MAX_VALUE
   });
 
-const token =  jwt.sign({
-         exp: Math.floor(Date.now() / 1000) + 100000,
-         _id:'599b87d9f63f591defcf5f70',
-       },config.secretkey, {});
-console.log(`token:\n${token}`);
+// const token =  jwt.sign({
+//          exp: Math.floor(Date.now() / 1000) + 100000,
+//          _id:'599b87d9f63f591defcf5f70',
+//        },config.secretkey, {});
+// console.log(`token:\n${token}`);
 srvhttp.startsrv();

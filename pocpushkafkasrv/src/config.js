@@ -18,6 +18,7 @@ let config =  {
   kafka_pconfig2:{
   },
   mapdict:{},
+  mapdevicecity:{},
   NodeID:nodeid,
   logdir:process.env.logdir ||'../../dist/log',
   kcmsg:!!process.env.kcmsg?parseInt(process.env.kcmsg):10,

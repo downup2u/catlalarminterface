@@ -8,6 +8,7 @@ const alarmplugin = require('./src/plugins/alarmfilter/index');
 const moment = require('moment');
 const debug = require('debug')('start');
 const schedule = require('node-schedule');
+const everydayjob = require('./src/everydayjob');
 
 debug(`start=====>version:${JSON.stringify(config)}`);
 
@@ -29,28 +30,7 @@ mongoose.connect(config.mongodburl,{
   });
 
 
-const alname = 'AL_';
-//还应该包括所有AL开头字母的信息
-const dbdictModel = DBModels.DataDictModel;
-dbdictModel.find({
-    name:{'$regex':alname, $options: "i"}
-  },(err,dictlist)=>{
-
-  // console.log(err)
-  // console.log(`dictlist==>${JSON.stringify(dictlist)}`)
-  let mapdict = {};
-  if(!err && dictlist.length > 0){
-    _.map(dictlist,(v)=>{
-      mapdict[v.name] = {
-        name:v.name,
-        showname:v.showname,
-        unit:v.unit
-      }
-    });
-  }
-  config.mapdict = _.merge(config.mapdict,mapdict);
-  // console.log(config.mapdict);
-});
+everydayjob();
 
 debug(`connected success!${moment().format('YYYY-MM-DD HH:mm:ss')}`);
 winston.getlog().info(`start pushsrv ok-->${config.NodeID}`);
@@ -111,4 +91,10 @@ schedule.scheduleJob('0 * * * *', ()=>{
   everyhourjob(()=>{
     winston.getlog().info(`定时执行完毕`);
   });
+});
+
+
+schedule.scheduleJob('0 8 * * *', ()=>{
+  //每天8点更新字典
+  everydayjob();
 });
