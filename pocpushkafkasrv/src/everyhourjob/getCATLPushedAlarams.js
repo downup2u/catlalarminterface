@@ -69,9 +69,17 @@ const convertItem = (item)=>{
   }
 }
 
+//{$where:'this.Alaram.Details.length>0'}
+
 const getCATLPushedAlarams = (CurDayHour,callbackfn)=>{
   const dbModel = DBModels.RealtimeAlarmHourModel;
-  dbModel.find({CurDayHour,isPushed:false,warninglevel:{$gt:0}}).lean().exec((err,list)=>{
+  dbModel.find({
+    CurDayHour,
+    isPushed:false,
+    warninglevel:{$gt:0},
+    'Alarm.Details':{$exists:true},
+    $where:'this.Alarm.Details.length>0'
+  }).lean().exec((err,list)=>{
     let retlist = [];
     if(!err && !!list){
       _.map(list,(item)=>{

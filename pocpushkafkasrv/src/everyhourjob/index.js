@@ -23,14 +23,16 @@ const everyhourjob = (callbackfn)=>{
   getCATLPushedAlarams(CurDayHour,(retlist)=>{
     debug(`retlist--->${JSON.stringify(retlist)}`);
     _.map(retlist,(info)=>{
-      const topic = getProductTopic(info.warninglevel);
-      if(!!topic){
-        PubSub.publish(`kafkamsgpush`,{
-          topic,
-          payload:info
-        });
+      const Details = _.get(info,'Alarm.Details',[]);
+      if(Details.length > 0){
+        const topic = getProductTopic(info.warninglevel);
+        if(!!topic){
+          PubSub.publish(`kafkamsgpush`,{
+            topic,
+            payload:info
+          });
+        }
       }
-
     });
     callbackfn(null,true);
   });
