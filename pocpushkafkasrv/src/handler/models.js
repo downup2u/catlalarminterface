@@ -60,6 +60,12 @@ const RealtimeAlarmHourSchema= new Schema({
 RealtimeAlarmHourSchema.plugin(mongoosePaginate);
 const RealtimeAlarmHourModel =mongoose.model('realtimealarmhour',  RealtimeAlarmHourSchema);
 
+//实时告警信息[按天->Kafka记录]
+const RealtimeAlarmHourKafkaSchema= new Schema({
+}, { strict: false });
+RealtimeAlarmHourKafkaSchema.plugin(mongoosePaginate);
+const RealtimeAlarmHourKafkaModel =mongoose.model('realtimealarmhourkafka',  RealtimeAlarmHourKafkaSchema);
+
 //登录日志
 const UserLogSchema = new Schema({
     username:String,
@@ -101,6 +107,7 @@ exports.RealtimeAlarmHourSchema = RealtimeAlarmHourSchema;
 exports.UserLogSchema = UserLogSchema;
 exports.DataDictSchema = DataDictSchema;
 exports.DeviceCitySchema = DeviceCitySchema;
+exports.RealtimeAlarmHourKafkaSchema = RealtimeAlarmHourKafkaSchema;
 
 exports.SystemConfigModel = SystemConfigModel;
 exports.DeviceModel = DeviceModel;
@@ -109,3 +116,4 @@ exports.RealtimeAlarmHourModel = RealtimeAlarmHourModel;
 exports.UserLogModel = UserLogModel;
 exports.DataDictModel = DataDictModel;
 exports.DeviceCityModel = DeviceCityModel;
+exports.RealtimeAlarmHourKafkaModel = RealtimeAlarmHourKafkaModel;

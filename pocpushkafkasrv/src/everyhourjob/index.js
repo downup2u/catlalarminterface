@@ -10,8 +10,13 @@ const everyhourjob = (callbackfn)=>{
   getCATLPushedAlarams(CurDayHour,(retlist)=>{
     debug(`retlist--->${JSON.stringify(retlist)}`);
     _.map(retlist,(info)=>{
-      setCATLAlaramPushed(info.id,(err,result)=>{
+      const dbModel = DBModels.RealtimeAlarmHourKafkaModel;
+      info.create_at = moment().format('YYYY-MM-DD HH:mm:ss');
+      const entity = new dbModel(info);
+      entity.save(info,(err,result)=>{
+        setCATLAlaramPushed(info.id,(err,result)=>{
 
+        });
       });
     });
     callbackfn(null,true);
