@@ -26,7 +26,7 @@ const startsrv = (config)=>{
     const cconfig =  config.kafka_cconfig2;
 
     const topics = [];
-    topics.push(config.kafka_dbtopic_current);
+    topics.push(config.kafka_dbtopic_c);
 
     // globalconfig['offset_commit_cb'] = (err, topicPartitions)=> {
     //   if (!!err) {

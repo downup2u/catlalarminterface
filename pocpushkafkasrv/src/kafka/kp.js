@@ -5,9 +5,7 @@ const config = require('../config');
 const _ = require('lodash');
 const debug = require('debug')('dbh:kp');
 
-const globalconfig = config.kafka_pconfig1 || {
-    'metadata.broker.list': '192.168.1.20:9092,192.168.1.114:9092,192.168.1.136:9092',
-};
+const globalconfig = config.kafka_pconfig1;
 const pconfig = config.kafka_pconfig2 || {
 
 };
