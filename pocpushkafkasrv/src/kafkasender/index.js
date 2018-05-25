@@ -17,7 +17,7 @@ const pushtokafkasrv = (topicname,payload,producer)=>{
       const entity = new dbModel(payload);
       entity.save(info,(err,result)=>{
         setCATLAlaramPushed(info.id,(err,result)=>{
-
+          debug(`setCATLAlaramPushed===>${info.id}`);
         });
       });
 
@@ -28,7 +28,7 @@ const pushtokafkasrv = (topicname,payload,producer)=>{
 
 }
 
-const startsrv = ()=>{
+const startsrv = (callbackfn)=>{
   getProducer(config.kafka_pconfig1,config.kafka_pconfig2,(err)=> {
     debug(`---uncaughtException err`);
     debug(err);
@@ -43,10 +43,10 @@ const startsrv = ()=>{
 
         pushtokafkasrv(data.topic,data.payload,producer);
 
-    };//for eachuser
-
+    };
+    debug('kafkaproducer is ready!');
     PubSub.subscribe(`kafkamsgpush`,userDeviceSubscriber);
-
+    callbackfn();
   });
 }
 

@@ -10,7 +10,7 @@ const debug = require('debug')('start');
 const schedule = require('node-schedule');
 const everydayjob = require('./src/everydayjob');
 const everyhourjob = require('./src/everyhourjob');
-const kafkasender = require('./kafkasender');
+const kafkasender = require('./sr/kafka/kafkasender');
 
 debug(`start=====>version:${JSON.stringify(config)}`);
 
@@ -37,7 +37,12 @@ winston.getlog().info(`start pushsrv ok-->${config.NodeID}`);
 
 everydayjob(()=>{
   startsrv(config);
-  kafkasender();
+  kafkasender(()=>{
+    everyhourjob(()=>{
+      winston.getlog().info(`第一次启动`);
+    });
+  });
+
 });
 
 
