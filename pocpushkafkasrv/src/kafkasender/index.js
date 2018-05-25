@@ -9,16 +9,17 @@ const setCATLAlaramPushed = require('../everyhourjob/setCATLAlaramPushed');
 
 const pushtokafkasrv = (topicname,payload,producer)=>{
   try {
-      const stringdata = JSON.stringify(payload);
+      const senddata = _.omit(payload,['warninglevel']);
+      const stringdata = JSON.stringify(senddata);
       producer.produce(topicname, -1, new Buffer(stringdata),payload.id);
-      debug(`send message===>${stringdata}`);
+      debug(`send message===>${stringdata},topicname:${topicname}`);
 
       const dbModel = DBModels.RealtimeAlarmHourKafkaModel;
       payload.create_at = moment().format('YYYY-MM-DD HH:mm:ss');
       const entity = new dbModel(payload);
       entity.save(payload,(err,result)=>{
         setCATLAlaramPushed(payload.id,(err,result)=>{
-          debug(`setCATLAlaramPushed===>${info.payload}`);
+          debug(`setCATLAlaramPushed===>${payload.id}`);
         });
       });
 
@@ -38,8 +39,6 @@ const startsrv = (callbackfn)=>{
   }).then((producer)=>{
 
     const userDeviceSubscriber = ( msg, data )=>{
-
-        debug('-->用户订阅数据:'+data);
 
         pushtokafkasrv(data.topic,data.payload,producer);
 
