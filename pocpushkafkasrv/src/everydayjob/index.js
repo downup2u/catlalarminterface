@@ -44,13 +44,15 @@ const getDeviceCities = ()=>{
           const DeviceId = _.get(v,'deviceid.DeviceId');
           if(!!DeviceId){
             let cityname = `${v.province}`;
-            if(v.city.length > 0){
-              cityname = `${cityname}${v.city}`;
-            }
-            else{
-              const district = _.get(v,'district');
-              if(!!district){
-                cityname = `${cityname}${district}`;
+            if(!!v.city){
+              if(v.city.length > 0){
+                cityname = `${cityname}${v.city}`;
+              }
+              else{
+                const district = _.get(v,'district');
+                if(!!district){
+                  cityname = `${cityname}${district}`;
+                }
               }
             }
             mapdevicecity[DeviceId] = {
