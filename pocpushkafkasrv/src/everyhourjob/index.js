@@ -5,7 +5,7 @@ const debug = require('debug')('appsrv:everyhourjob')
 const moment = require('moment');
 const _ = require('lodash');
 
-const everyhourjob = ()=>{
+const everyhourjob = (callbackfn)=>{
   const CurDayHour = moment().subtract(1, 'hours').format('YYYYMMDDHH');
   getCATLPushedAlarams(CurDayHour,(retlist)=>{
     debug(`retlist--->${JSON.stringify(retlist)}`);
@@ -14,6 +14,7 @@ const everyhourjob = ()=>{
 
       });
     });
+    callbackfn(null,true);
   });
 }
 

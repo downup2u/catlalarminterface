@@ -56,7 +56,7 @@ const getdbdata_alarm = (devicedata,callbackfn)=>{
           */
           mapFieldName[v.fieldname] = {
             id:v.fieldname,
-            description:config.mapdict[v.fieldname].showname ||  _.get(v,'alarmtxt',''),
+            description:_.get(config.mapdict,`${v.fieldname}.showname`) ||  _.get(v,'alarmtxt',''),
             warninglevel:_.get(warninglevelmap,`${v.warninglevel}`, 0),
           }
         });

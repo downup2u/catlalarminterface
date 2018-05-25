@@ -29,15 +29,17 @@ mongoose.connect(config.mongodburl,{
     reconnectTries: Number.MAX_VALUE
   });
 
-
-everydayjob();
-
 debug(`connected success!${moment().format('YYYY-MM-DD HH:mm:ss')}`);
 winston.getlog().info(`start pushsrv ok-->${config.NodeID}`);
 
 
+everydayjob(()=>{
+  startsrv(config);
+});
 
-startsrv(config);
+
+
+
 
 // *    *    *    *    *    *
 // ┬    ┬    ┬    ┬    ┬    ┬
@@ -59,6 +61,8 @@ schedule.scheduleJob('*/5 * * * *', ()=>{
 
 schedule.scheduleJob('0 8 * * *', ()=>{
   //每天8点更新字典
-  everydayjob();
-  winston.getlog().info(`每天8点更新字典`);
+  everydayjob(()=>{
+    winston.getlog().info(`每天8点更新字典`);
+  });
+
 });

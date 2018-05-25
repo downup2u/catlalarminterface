@@ -2,8 +2,10 @@ const config = require('../config');
 const DBModels = require('../handler/models.js');
 const _ = require('lodash');
 const mongoose     = require('mongoose');
-const debug = require('debug')('appsrv:everydayjob')
-const getDataDict = ()=>{
+const debug = require('debug')('appsrv:everydayjob');
+const async = require('async');
+
+const getDataDict = (callbackfn)=>{
   const alname = 'AL_';
   //还应该包括所有AL开头字母的信息
   const dbdictModel = DBModels.DataDictModel;
@@ -25,10 +27,11 @@ const getDataDict = ()=>{
     }
     config.mapdict = _.merge(config.mapdict,mapdict);
     debug(config.mapdict);
+    callbackfn(null,true);
   });
 }
 
-const getDeviceCities = ()=>{
+const getDeviceCities = (callbackfn)=>{
   const dbModel = DBModels.DeviceCityModel;
   dbModel.find({
     }).populate([
@@ -66,13 +69,16 @@ const getDeviceCities = ()=>{
       }
       config.mapdevicecity = _.merge(config.mapdevicecity,mapdevicecity);
       debug(config.mapdevicecity);
+      callbackfn(null,true);
   });
 }
 //
 
-const everydayjob = ()=>{
-  getDataDict();
-  getDeviceCities();
+const everydayjob = (callbackfn)=>{
+  const asyncsz = [getDataDict,getDeviceCities];
+  async.parallel(asyncsz,(err,result)=>{
+    callbackfn(null,true);
+  });
 };
 
 module.exports = everydayjob;
