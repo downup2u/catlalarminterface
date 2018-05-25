@@ -14,11 +14,11 @@ const pushtokafkasrv = (topicname,payload,producer)=>{
       debug(`send message===>${stringdata}`);
 
       const dbModel = DBModels.RealtimeAlarmHourKafkaModel;
-      info.create_at = moment().format('YYYY-MM-DD HH:mm:ss');
+      payload.create_at = moment().format('YYYY-MM-DD HH:mm:ss');
       const entity = new dbModel(payload);
-      entity.save(info,(err,result)=>{
-        setCATLAlaramPushed(info.id,(err,result)=>{
-          debug(`setCATLAlaramPushed===>${info.id}`);
+      entity.save(payload,(err,result)=>{
+        setCATLAlaramPushed(payload.id,(err,result)=>{
+          debug(`setCATLAlaramPushed===>${info.payload}`);
         });
       });
 
