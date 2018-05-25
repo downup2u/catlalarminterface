@@ -34,7 +34,7 @@ const mongoose     = require('mongoose');
 // }
 
 const convertItem = (item)=>{
-  const {id,DeviceId,CurDayHour,Details,Latitude,Longitude,citycode,adcode,FirstAlarmTime,DataTime} = item;
+  const {id,DeviceId,CurDayHour,Details,Latitude,Longitude,citycode,adcode,FirstAlarmTime,warninglevel,DataTime} = item;
   let DetailsResult = [];
   _.map(Details,(info)=>{
     info.count = item[info.id];
@@ -51,6 +51,7 @@ const convertItem = (item)=>{
       adcode,
       FirstAlarmTime,
       DataTime,
+      warninglevel,
       Alarm:{Details:DetailsResult}
     }
   }
@@ -63,6 +64,7 @@ const convertItem = (item)=>{
     Longitude,
     FirstAlarmTime,
     DataTime,
+    warninglevel,
     Alarm:{Details:DetailsResult}
   }
 }
