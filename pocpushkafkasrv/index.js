@@ -9,7 +9,7 @@ const moment = require('moment');
 const debug = require('debug')('start');
 const schedule = require('node-schedule');
 const everydayjob = require('./src/everydayjob');
-
+const everyhourjob = require('./src/everyhourjob');
 debug(`start=====>version:${JSON.stringify(config)}`);
 
 debug(`==========`);
@@ -35,46 +35,9 @@ everydayjob();
 debug(`connected success!${moment().format('YYYY-MM-DD HH:mm:ss')}`);
 winston.getlog().info(`start pushsrv ok-->${config.NodeID}`);
 
-// const getInitAlarm = (callback)=>{
-//   const deviceModel = DBModels.DeviceModel;
-//   const fields = {'DeviceId':1,'warninglevel':1,'alarmtxtstat':1,'CurDay':1};
-//   const queryexec = deviceModel.find({CurDay:alarmplugin.getCurDay()}).select(fields).lean();
-//   debug(`device start exec`);
-//   queryexec.exec((err,list)=>{
-//     if(!err && !!list){
-//       _.map(list,(deviceinfo)=>{
-//         config.gloabaldevicealarmstat_realtime[`${deviceinfo.DeviceId}`] = {
-//           CurDay:_.get(deviceinfo,'CurDay',alarmplugin.getCurDay()),
-//           warninglevel:deviceinfo.warninglevel,
-//           devicealarmstat:deviceinfo.alarmtxtstat
-//         };
-//       });
-//     }
-//     callback();
-//   });
-// }
-//
 
 
-const everyhourjob = (callback)=>{
-  // const deviceModel = DBModels.DeviceModel;
-  // deviceModel.update({
-  //   CurDay:{
-  //     $ne:alarmplugin.getCurDay()
-  //   }
-  // },{
-  //   warninglevel:'',
-  //   devicealarmstat:'',
-  //   CurDay: alarmplugin.getCurDay(),
-  // }, { multi: true },(err,result)=>{
-  //   getInitAlarm(callback);
-  // });
-  callback();
-}
-
-everyhourjob(()=>{
-  startsrv(config);
-});
+startsrv(config);
 
 // *    *    *    *    *    *
 // ┬    ┬    ┬    ┬    ┬    ┬
@@ -89,7 +52,7 @@ everyhourjob(()=>{
 schedule.scheduleJob('0 * * * *', ()=>{
   //每天0点更新优惠券过期信息
   everyhourjob(()=>{
-    winston.getlog().info(`定时执行完毕`);
+    winston.getlog().info(`每天定时任务执行完毕`);
   });
 });
 
@@ -97,4 +60,5 @@ schedule.scheduleJob('0 * * * *', ()=>{
 schedule.scheduleJob('0 8 * * *', ()=>{
   //每天8点更新字典
   everydayjob();
+  winston.getlog().info(`每小时定时任务执行完毕`);
 });
