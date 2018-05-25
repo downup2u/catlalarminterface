@@ -1,8 +1,8 @@
-const config = require('../src/config');
-const DBModels = require('../src/handler/models.js');
+const config = require('../config');
+const DBModels = require('../handler/models.js');
 const _ = require('lodash');
 const mongoose     = require('mongoose');
-
+const debug = require('debug')('appsrv:everydayjob')
 const getDataDict = ()=>{
   const alname = 'AL_';
   //还应该包括所有AL开头字母的信息
@@ -24,7 +24,7 @@ const getDataDict = ()=>{
       });
     }
     config.mapdict = _.merge(config.mapdict,mapdict);
-    console.log(config.mapdict);
+    debug(config.mapdict);
   });
 }
 
@@ -63,7 +63,7 @@ const getDeviceCities = ()=>{
         });
       }
       config.mapdevicecity = _.merge(config.mapdevicecity,mapdevicecity);
-      console.log(config.mapdevicecity);
+      debug(config.mapdevicecity);
   });
 }
 //

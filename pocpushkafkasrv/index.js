@@ -49,10 +49,10 @@ startsrv(config);
 // │    └──────────────────── minute (0 - 59)
 // └───────────────────────── second (0 - 59, OPTIONAL)
 
-schedule.scheduleJob('0 * * * *', ()=>{
-  //每天0点更新优惠券过期信息
+schedule.scheduleJob('*/5 * * * *', ()=>{
+  //5分钟更新一次
   everyhourjob(()=>{
-    winston.getlog().info(`每天定时任务执行完毕`);
+    winston.getlog().info(`5分钟更新一次`);
   });
 });
 
@@ -60,5 +60,5 @@ schedule.scheduleJob('0 * * * *', ()=>{
 schedule.scheduleJob('0 8 * * *', ()=>{
   //每天8点更新字典
   everydayjob();
-  winston.getlog().info(`每小时定时任务执行完毕`);
+  winston.getlog().info(`每天8点更新字典`);
 });
