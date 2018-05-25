@@ -10,7 +10,7 @@ const debug = require('debug')('start');
 const schedule = require('node-schedule');
 const everydayjob = require('./src/everydayjob');
 const everyhourjob = require('./src/everyhourjob');
-const kafkasender = require('./sr/kafka/kafkasender');
+const kafkasender = require('./src/kafkasender');
 
 debug(`start=====>version:${JSON.stringify(config)}`);
 
