@@ -74,3 +74,12 @@ schedule.scheduleJob('0 8 * * *', ()=>{
   });
 
 });
+
+/*
+root@ecs-7063-0001:~# docker run -it confluentinc/cp-kafka:4.0.0 bash
+kafka-consumer-groups --bootstrap-server 192.168.2.11:9092  --group catlpushgroup --describe
+
+
+kafka-consumer-groups --bootstrap-server 192.168.2.11:9092  --group catlpushgroup  --topic pbmsindex --reset-offsets --to-latest --execute
+
+*/
