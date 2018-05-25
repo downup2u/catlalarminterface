@@ -4,6 +4,7 @@ const DBModels = require('../handler/models.js');
 const _ = require('lodash');
 const debug = require('debug')('srv:index');
 const PubSub = require('pubsub-js');
+const config = require('../config');
 const setCATLAlaramPushed = require('../everyhourjob/setCATLAlaramPushed');
 
 const pushtokafkasrv = (topicname,payload,producer)=>{
