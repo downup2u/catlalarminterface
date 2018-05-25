@@ -1,10 +1,10 @@
 const moment = require('moment');
-const getProducer  = require('../src/rkafka/p.js');
+const getProducer  = require('../kafka/rkafka/p.js');
 const DBModels = require('../handler/models.js');
 const _ = require('lodash');
 const debug = require('debug')('srv:index');
 const PubSub = require('pubsub-js');
-const setCATLAlaramPushed = require('./setCATLAlaramPushed');
+const setCATLAlaramPushed = require('../everyhourjob/setCATLAlaramPushed');
 
 const pushtokafkasrv = (topicname,payload,producer)=>{
   try {
