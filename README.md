@@ -6,6 +6,8 @@ http://3005//apicatl/location/0
 curl http://192.168.2.16:3005/apicatl/location/1719100251
 
 
+121.204.133.201	 
+
 root@ecs-7063-0001:~# docker run -it confluentinc/cp-kafka:4.0.0 bash
 kafka-consumer-groups --bootstrap-server 192.168.2.11:9092  --group catlpushgroup --describe
 

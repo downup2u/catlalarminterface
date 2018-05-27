@@ -159,6 +159,166 @@
         "logdir":"/root/catlalarminterface/log",
         "KAFKA_HOST_P":"192.168.2.11:9092,192.168.2.12:9092,192.168.2.13:9092"
       }
+    },
+    {
+      "name": "catlpushsrv11",
+      "script": "/root/catlalarminterface/pocpushkafkasrv/index.js",
+      "exec_mode":"fork_mode",
+      "env": {
+        "NODE_ENV": "production",
+        "DEBUG":"srv:*",
+        "DEBUG_COLORS":"1",
+        "NodeID":"11",
+        "MONGO_URL":"mongodb://192.168.2.17:27007,192.168.2.18:27007/bmscatl?readPreference=secondaryPreferred",
+        "mongos":"true",
+        "GroupId":"catlpushgroup",
+        "logdir":"/root/catlalarminterface/log",
+        "KAFKA_HOST_P":"192.168.2.11:9092,192.168.2.12:9092,192.168.2.13:9092"
+      }
+    },
+    {
+      "name": "catlpushsrv12",
+      "script": "/root/catlalarminterface/pocpushkafkasrv/index.js",
+      "exec_mode":"fork_mode",
+      "env": {
+        "NODE_ENV": "production",
+        "DEBUG":"srv:*",
+        "DEBUG_COLORS":"1",
+        "NodeID":"12",
+        "MONGO_URL":"mongodb://192.168.2.17:27007,192.168.2.18:27007/bmscatl?readPreference=secondaryPreferred",
+        "mongos":"true",
+        "GroupId":"catlpushgroup",
+        "logdir":"/root/catlalarminterface/log",
+        "KAFKA_HOST_P":"192.168.2.11:9092,192.168.2.12:9092,192.168.2.13:9092"
+      }
+    },
+    {
+      "name": "catlpushsrv13",
+      "script": "/root/catlalarminterface/pocpushkafkasrv/index.js",
+      "exec_mode":"fork_mode",
+      "env": {
+        "NODE_ENV": "production",
+        "DEBUG":"srv:*",
+        "DEBUG_COLORS":"1",
+        "NodeID":"13",
+        "MONGO_URL":"mongodb://192.168.2.17:27007,192.168.2.18:27007/bmscatl?readPreference=secondaryPreferred",
+        "mongos":"true",
+        "GroupId":"catlpushgroup",
+        "logdir":"/root/catlalarminterface/log",
+        "KAFKA_HOST_P":"192.168.2.11:9092,192.168.2.12:9092,192.168.2.13:9092"
+      }
+    },
+    {
+      "name": "catlpushsrv14",
+      "script": "/root/catlalarminterface/pocpushkafkasrv/index.js",
+      "exec_mode":"fork_mode",
+      "env": {
+        "NODE_ENV": "production",
+        "DEBUG":"srv:*",
+        "DEBUG_COLORS":"1",
+        "NodeID":"14",
+        "MONGO_URL":"mongodb://192.168.2.17:27007,192.168.2.18:27007/bmscatl?readPreference=secondaryPreferred",
+        "mongos":"true",
+        "GroupId":"catlpushgroup",
+        "logdir":"/root/catlalarminterface/log",
+        "KAFKA_HOST_P":"192.168.2.11:9092,192.168.2.12:9092,192.168.2.13:9092"
+      }
+    },
+    {
+      "name": "catlpushsrv15",
+      "script": "/root/catlalarminterface/pocpushkafkasrv/index.js",
+      "exec_mode":"fork_mode",
+      "env": {
+        "NODE_ENV": "production",
+        "DEBUG":"srv:*",
+        "DEBUG_COLORS":"1",
+        "NodeID":"15",
+        "MONGO_URL":"mongodb://192.168.2.17:27007,192.168.2.18:27007/bmscatl?readPreference=secondaryPreferred",
+        "mongos":"true",
+        "GroupId":"catlpushgroup",
+        "logdir":"/root/catlalarminterface/log",
+        "KAFKA_HOST_P":"192.168.2.11:9092,192.168.2.12:9092,192.168.2.13:9092"
+      }
+    },
+    {
+      "name": "catlpushsrv16",
+      "script": "/root/catlalarminterface/pocpushkafkasrv/index.js",
+      "exec_mode":"fork_mode",
+      "env": {
+        "NODE_ENV": "production",
+        "DEBUG":"srv:*",
+        "DEBUG_COLORS":"1",
+        "NodeID":"16",
+        "MONGO_URL":"mongodb://192.168.2.17:27007,192.168.2.18:27007/bmscatl?readPreference=secondaryPreferred",
+        "mongos":"true",
+        "GroupId":"catlpushgroup",
+        "logdir":"/root/catlalarminterface/log",
+        "KAFKA_HOST_P":"192.168.2.11:9092,192.168.2.12:9092,192.168.2.13:9092"
+      }
+    },
+    {
+      "name": "catlpushsrv17",
+      "script": "/root/catlalarminterface/pocpushkafkasrv/index.js",
+      "exec_mode":"fork_mode",
+      "env": {
+        "NODE_ENV": "production",
+        "DEBUG":"srv:*",
+        "DEBUG_COLORS":"1",
+        "NodeID":"17",
+        "MONGO_URL":"mongodb://192.168.2.17:27007,192.168.2.18:27007/bmscatl?readPreference=secondaryPreferred",
+        "mongos":"true",
+        "GroupId":"catlpushgroup",
+        "logdir":"/root/catlalarminterface/log",
+        "KAFKA_HOST_P":"192.168.2.11:9092,192.168.2.12:9092,192.168.2.13:9092"
+      }
+    },
+    {
+      "name": "catlpushsrv18",
+      "script": "/root/catlalarminterface/pocpushkafkasrv/index.js",
+      "exec_mode":"fork_mode",
+      "env": {
+        "NODE_ENV": "production",
+        "DEBUG":"srv:*",
+        "DEBUG_COLORS":"1",
+        "NodeID":"18",
+        "MONGO_URL":"mongodb://192.168.2.17:27007,192.168.2.18:27007/bmscatl?readPreference=secondaryPreferred",
+        "mongos":"true",
+        "GroupId":"catlpushgroup",
+        "logdir":"/root/catlalarminterface/log",
+        "KAFKA_HOST_P":"192.168.2.11:9092,192.168.2.12:9092,192.168.2.13:9092"
+      }
+    },
+    {
+      "name": "catlpushsrv19",
+      "script": "/root/catlalarminterface/pocpushkafkasrv/index.js",
+      "exec_mode":"fork_mode",
+      "env": {
+        "NODE_ENV": "production",
+        "DEBUG":"srv:*",
+        "DEBUG_COLORS":"1",
+        "NodeID":"19",
+        "MONGO_URL":"mongodb://192.168.2.17:27007,192.168.2.18:27007/bmscatl?readPreference=secondaryPreferred",
+        "mongos":"true",
+        "GroupId":"catlpushgroup",
+        "logdir":"/root/catlalarminterface/log",
+        "KAFKA_HOST_P":"192.168.2.11:9092,192.168.2.12:9092,192.168.2.13:9092"
+      }
+    },
+    {
+      "name": "catlpushsrv20",
+      "script": "/root/catlalarminterface/pocpushkafkasrv/index.js",
+      "exec_mode":"fork_mode",
+      "env": {
+        "NODE_ENV": "production",
+        "DEBUG":"srv:*",
+        "DEBUG_COLORS":"1",
+        "NodeID":"20",
+        "MONGO_URL":"mongodb://192.168.2.17:27007,192.168.2.18:27007/bmscatl?readPreference=secondaryPreferred",
+        "mongos":"true",
+        "GroupId":"catlpushgroup",
+        "logdir":"/root/catlalarminterface/log",
+        "KAFKA_HOST_P":"192.168.2.11:9092,192.168.2.12:9092,192.168.2.13:9092"
+      }
     }
   ]
 }
