@@ -1,7 +1,7 @@
 const config = require('../config');
 const getCATLPushedAlarams = require('./getCATLPushedAlarams');
 
-const debug = require('debug')('appsrv:everyhourjob')
+const debug = require('debug')('srv:everyhourjob')
 const moment = require('moment');
 const _ = require('lodash');
 const PubSub = require('pubsub-js');

@@ -2,7 +2,7 @@ const config = require('../config');
 const DBModels = require('../handler/models.js');
 const _ = require('lodash');
 const mongoose     = require('mongoose');
-const debug = require('debug')('appsrv:everydayjob');
+const debug = require('debug')('srv:everydayjob');
 const async = require('async');
 
 const getDataDict = (callbackfn)=>{
