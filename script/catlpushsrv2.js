@@ -1,7 +1,7 @@
 module.exports = {
   apps : [
       {
-        name: "catlpushsrv",
+        name: "catlpushsrv2",
         script: "/root/catlalarminterface/index.js",
         env: {
           "NODE_ENV": "production",
