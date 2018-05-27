@@ -3,6 +3,7 @@ module.exports = {
       {
         name: "catlpushsrv2",
         script: "/root/catlalarminterface/index.js",
+        exec_mode:"cluster",
         env: {
           "NODE_ENV": "production",
           "DEBUG":"srv:*",
