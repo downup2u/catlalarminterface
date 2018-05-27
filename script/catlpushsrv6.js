@@ -5,8 +5,9 @@ module.exports = {
         script: "/root/catlalarminterface/index.js",
         env: {
           "NODE_ENV": "production",
-          "DEBUG":"srvinterval:*",
+          "DEBUG":"srv:*",
           "DEBUG_COLORS":"1",
+          "NodeID":"6",
           "MONGO_URL":"mongodb://192.168.2.17:27007,192.168.2.18:27007/bmscatl?readPreference=secondaryPreferred",
           "mongos":"true",
           "GroupId":"catlpushgroup",

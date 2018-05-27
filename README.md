@@ -19,3 +19,6 @@ kafka-console-consumer --bootstrap-server 192.168.2.11:9092 --topic CRM_ALARM_IN
 kafka-consumer-groups --bootstrap-server 192.168.2.11:9092  --group pbmsgid --describe
 
 NodeID='1' pm2 start index.js
+NodeID='2' pm2 start index.js
+NodeID='3' pm2 start index.js
+NodeID='4' pm2 start index.js
