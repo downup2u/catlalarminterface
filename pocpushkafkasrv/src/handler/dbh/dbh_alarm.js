@@ -64,12 +64,10 @@ const dbh_alarm =(datasin,callbackfn)=>{
     devicedata.iorder = index;
     asyncfnsz.push(
       (callbackfn)=>{
-        const DeviceId = devicedata["$set"].DeviceId;
-        const CurDayHour = devicedata["$set"].CurDayHour;
-        debug_alarm(`dbh_alarm--->DeviceId:${DeviceId},CurDayHour:${CurDayHour},devicedata:${JSON.stringify(devicedata)}`)
+        const id = devicedata["$set"].id;
+        debug_alarm(`dbh_alarm--->id:${id},devicedata:${JSON.stringify(devicedata)}`)
         dbModel.findOneAndUpdate({
-        		DeviceId,
-            CurDayHour,
+        		id
          },devicedata,{upsert:true,new:true}).lean().exec((err,result)=>{
            result.iorder = devicedata.iorder;
            if(!!err){
