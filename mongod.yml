@@ -1,0 +1,16 @@
+version: '2'
+services:
+    mongodb:
+      image:  mongo:3.4
+      restart: always
+      expose:
+         - "27017"
+      volumes:
+         - /etc/localtime:/etc/localtime:ro
+         - "/catlcluster/dbdata:/data/db -d"
+      ports:
+         - "27017:27017"
+      environment:
+        - MONGO_INITDB_ROOT_USERNAME=admin
+        - MONGO_INITDB_ROOT_PASSWORD=15961125167
+      command: mongod --auth

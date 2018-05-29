@@ -104,7 +104,7 @@ const getSystemconfig = (callbackfn)=>{
 };
 
 const startviews = (app)=>{
-  //http://localhost:3005/apicatl/login
+  //http://localhost:3005/apisys/getDataDict
   app.get('/apisys/getDataDict', (req, res)=> {
     getDataDict((resultjson)=>{
       res.status(200)
@@ -112,14 +112,14 @@ const startviews = (app)=>{
     });
 
 	});
-
+  //http://localhost:3005/apisys/getDeviceCities
   app.get('/apisys/getDeviceCities',(req, res)=> {//middlewareauth,
     getDeviceCities((resultjson)=>{
       res.status(200)
           .json(resultjson);
     });
   });
-
+  //http://localhost:3005/apisys/getSystemconfig
   app.get('/apisys/getSystemconfig',(req, res)=> {//middlewareauth,
     getSystemconfig((resultjson)=>{
       res.status(200)

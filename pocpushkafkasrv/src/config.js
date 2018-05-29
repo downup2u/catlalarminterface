@@ -1,6 +1,6 @@
 const nodeid = process.env.NodeID || 1;
 let config =  {
-  dbsysurl:process.env.DBSYS_URL ||'http://localhost:3005',
+  dbsysurl:process.env.DBSYS_URL ||'http://localhost:3005/apisys',
   mongodburl:process.env.MONGO_URL || 'mongodb://localhost/bmskafka',
   mongos:process.env.mongos==='true'?true:false,
   kafka_cconfig1:{
