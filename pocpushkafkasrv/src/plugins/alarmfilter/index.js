@@ -114,28 +114,28 @@ const matchalarm = (alarmdata,callback)=>{
           const systemconfig = config.systemconfig;
 
           let resultalarmmatch = [];
-          if(!err && !!systemconfig){
-            // let systemconfig = result.toJSON();
-            let alarmrules = getalarmrules(systemconfig);
-            // //console.log(alarmrules);
-            resultalarmmatch = getresultalarmmatch(alarmdata,alarmrules);
+
+          // let systemconfig = result.toJSON();
+          let alarmrules = getalarmrules(systemconfig);
+          // //console.log(alarmrules);
+          resultalarmmatch = getresultalarmmatch(alarmdata,alarmrules);
+
+          // //console.log(resultalarmmatch);
+          resultalarmmatch = _.sortBy(resultalarmmatch,(v)=>{
+            if(v.warninglevel === '高'){
+              return 0;
+            }
+            if(v.warninglevel === '中'){
+              return 1;
+            }
+            if(v.warninglevel === '低'){
+              return 2;
+            }
+            return 3;
+          });
 
             // //console.log(resultalarmmatch);
-            resultalarmmatch = _.sortBy(resultalarmmatch,(v)=>{
-              if(v.warninglevel === '高'){
-                return 0;
-              }
-              if(v.warninglevel === '中'){
-                return 1;
-              }
-              if(v.warninglevel === '低'){
-                return 2;
-              }
-              return 3;
-            });
 
-            // //console.log(resultalarmmatch);
-          }
           callback(resultalarmmatch);
 
     }
