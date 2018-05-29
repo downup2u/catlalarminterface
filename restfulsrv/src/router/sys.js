@@ -105,7 +105,7 @@ const getSystemconfig = (callbackfn)=>{
 
 const startviews = (app)=>{
   //http://localhost:3005/apicatl/login
-  app.post('/apisys/getDataDict', (req, res)=> {
+  app.get('/apisys/getDataDict', (req, res)=> {
     getDataDict((resultjson)=>{
       res.status(200)
           .json(resultjson);
@@ -121,7 +121,7 @@ const startviews = (app)=>{
   });
 
   app.get('/apisys/getSystemconfig',(req, res)=> {//middlewareauth,
-    getDeviceCities((resultjson)=>{
+    getSystemconfig((resultjson)=>{
       res.status(200)
           .json(resultjson);
     });
