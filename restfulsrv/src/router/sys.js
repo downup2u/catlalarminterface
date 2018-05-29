@@ -100,7 +100,7 @@ const getSystemconfig = (callbackfn)=>{
   const systemconfigModel = DBModels.SystemConfigModel;
   systemconfigModel.findOne({}).lean().exec((err, systemconfig)=> {
     callbackfn(systemconfig);
-  }
+  });
 });
 
 const startviews = (app)=>{
