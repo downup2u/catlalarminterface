@@ -101,7 +101,7 @@ const getSystemconfig = (callbackfn)=>{
   systemconfigModel.findOne({}).lean().exec((err, systemconfig)=> {
     callbackfn(systemconfig);
   });
-});
+};
 
 const startviews = (app)=>{
   //http://localhost:3005/apicatl/login
