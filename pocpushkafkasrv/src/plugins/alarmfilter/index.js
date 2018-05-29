@@ -4,19 +4,7 @@ const moment = require('moment');
 const mongoose     = require('mongoose');
 const config = require('../../config');
 const debug = require('debug')('kafka');
-// let alarmrule_systemconfig = {
-//
-// }
-//
-// exports.initplugin = ()=>{
-//   const systemconfigModel = DBModels.SystemConfigModel;
-//   systemconfigModel.findOne({ organizationid: organizationid }, (err, systemconfig)=> {
-//     if(!err && !!systemconfig){
-//       alarmrule_systemconfig = systemconfig;
-//     }
-//   });
-//
-// }
+
 
 const getalarmrules = (systemconfig)=>{
   let alarmrules = {};
@@ -123,8 +111,8 @@ const getresultalarmmatch = (alarmdata,alarmrules)=>{
 
 const matchalarm = (alarmdata,callback)=>{
     if(!!alarmdata){
-      const systemconfigModel = DBModels.SystemConfigModel;
-      systemconfigModel.findOne({}).lean().exec((err, systemconfig)=> {
+          const systemconfig = config.systemconfig;
+
           let resultalarmmatch = [];
           if(!err && !!systemconfig){
             // let systemconfig = result.toJSON();
@@ -149,7 +137,7 @@ const matchalarm = (alarmdata,callback)=>{
             // //console.log(resultalarmmatch);
           }
           callback(resultalarmmatch);
-      });
+
     }
     else{
       callback([]);

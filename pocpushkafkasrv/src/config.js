@@ -1,6 +1,7 @@
 const nodeid = process.env.NodeID || 1;
 let config =  {
-  mongodburl:process.env.MONGO_URL || 'mongodb://192.168.2.17:27007,192.168.2.18:27007/bmscatl?readPreference=secondaryPreferred',
+  dbsysurl:process.env.DBSYS_URL ||'http://localhost:3005',
+  mongodburl:process.env.MONGO_URL || 'mongodb://localhost/bmskafka',
   mongos:process.env.mongos==='true'?true:false,
   kafka_cconfig1:{
       'group.id': process.env.GroupId ||'catlpushgroup',
@@ -17,6 +18,7 @@ let config =  {
   },
   kafka_pconfig2:{
   },
+  systemconfig:{},
   mapdict:{},
   mapdevicecity:{},
   NodeID:nodeid,
