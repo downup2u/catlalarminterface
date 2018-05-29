@@ -5,10 +5,13 @@ const _ = require("lodash");
 const moment = require('moment');
 //设备
 const Schema       = mongoose.Schema;
+//系统设置
+const SystemConfigSchema = new Schema({
+}, { strict: false });
+const SystemConfigModel =mongoose.model('systemconfig',  SystemConfigSchema);
 
 //数据字典
 const DataDictSchema = new Schema({
-  organizationid:{ type: Schema.Types.ObjectId, ref: 'organization' },
   name:{type:String},//字段名
   fullname:{type:String},//字段全名
   showname:{type:String},//字段显示名
@@ -16,16 +19,13 @@ const DataDictSchema = new Schema({
   desc:{type:String},//字段描述
   unit:{type:String},//字段单位
 });
-DataDictSchema.plugin(mongoosePaginate);
 const DataDictModel =mongoose.model('datadict',  DataDictSchema);
-
 
 //设备城市映射表【每天一次】
 const DeviceCitySchema = new Schema({
   deviceid:{ type: Schema.Types.ObjectId, ref: 'device'},
   updatetime: { type: String, default:moment().format('YYYY-MM-DD HH:mm:ss')},
 }, { strict: false });
-DeviceCitySchema.plugin(mongoosePaginate);
 const DeviceCityModel =mongoose.model('devicecity',  DeviceCitySchema);
 
 const getDataDict = (callbackfn)=>{
@@ -97,7 +97,7 @@ const getDeviceCities = (callbackfn)=>{
 }
 //
 const getSystemconfig = (callbackfn)=>{
-  const systemconfigModel = DBModels.SystemConfigModel;
+  const systemconfigModel = SystemConfigModel;
   systemconfigModel.findOne({}).lean().exec((err, systemconfig)=> {
     callbackfn(systemconfig);
   });
