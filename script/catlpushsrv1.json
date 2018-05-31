@@ -13,7 +13,7 @@
         "mongos":"true",
         "GroupId":"catlpushgroup",
         "logdir":"/root/catlalarminterface/log",
-        "KAFKA_HOST_P":"192.168.2.11:9092,192.168.2.12:9092,192.168.2.13:9092"
+        "KAFKA_HOST_P":"172.26.175.131:9092,172.26.175.132:9092,172.26.175.133:9092"
       }
     },
     {
@@ -29,7 +29,7 @@
         "mongos":"true",
         "GroupId":"catlpushgroup",
         "logdir":"/root/catlalarminterface/log",
-        "KAFKA_HOST_P":"192.168.2.11:9092,192.168.2.12:9092,192.168.2.13:9092"
+        "KAFKA_HOST_P":"172.26.175.131:9092,172.26.175.132:9092,172.26.175.133:9092"
       }
     },
     {
@@ -45,7 +45,7 @@
         "mongos":"true",
         "GroupId":"catlpushgroup",
         "logdir":"/root/catlalarminterface/log",
-        "KAFKA_HOST_P":"192.168.2.11:9092,192.168.2.12:9092,192.168.2.13:9092"
+        "KAFKA_HOST_P":"172.26.175.131:9092,172.26.175.132:9092,172.26.175.133:9092"
       }
     },
     {
@@ -61,7 +61,7 @@
         "mongos":"true",
         "GroupId":"catlpushgroup",
         "logdir":"/root/catlalarminterface/log",
-        "KAFKA_HOST_P":"192.168.2.11:9092,192.168.2.12:9092,192.168.2.13:9092"
+        "KAFKA_HOST_P":"172.26.175.131:9092,172.26.175.132:9092,172.26.175.133:9092"
       }
     },
     {
@@ -77,7 +77,7 @@
         "mongos":"true",
         "GroupId":"catlpushgroup",
         "logdir":"/root/catlalarminterface/log",
-        "KAFKA_HOST_P":"192.168.2.11:9092,192.168.2.12:9092,192.168.2.13:9092"
+        "KAFKA_HOST_P":"172.26.175.131:9092,172.26.175.132:9092,172.26.175.133:9092"
       }
     },
     {
@@ -93,7 +93,7 @@
         "mongos":"true",
         "GroupId":"catlpushgroup",
         "logdir":"/root/catlalarminterface/log",
-        "KAFKA_HOST_P":"192.168.2.11:9092,192.168.2.12:9092,192.168.2.13:9092"
+        "KAFKA_HOST_P":"172.26.175.131:9092,172.26.175.132:9092,172.26.175.133:9092"
       }
     },
     {
@@ -109,7 +109,7 @@
         "mongos":"true",
         "GroupId":"catlpushgroup",
         "logdir":"/root/catlalarminterface/log",
-        "KAFKA_HOST_P":"192.168.2.11:9092,192.168.2.12:9092,192.168.2.13:9092"
+        "KAFKA_HOST_P":"172.26.175.131:9092,172.26.175.132:9092,172.26.175.133:9092"
       }
     },
     {
@@ -125,7 +125,7 @@
         "mongos":"true",
         "GroupId":"catlpushgroup",
         "logdir":"/root/catlalarminterface/log",
-        "KAFKA_HOST_P":"192.168.2.11:9092,192.168.2.12:9092,192.168.2.13:9092"
+        "KAFKA_HOST_P":"172.26.175.131:9092,172.26.175.132:9092,172.26.175.133:9092"
       }
     },
     {
@@ -141,7 +141,7 @@
         "mongos":"true",
         "GroupId":"catlpushgroup",
         "logdir":"/root/catlalarminterface/log",
-        "KAFKA_HOST_P":"192.168.2.11:9092,192.168.2.12:9092,192.168.2.13:9092"
+        "KAFKA_HOST_P":"172.26.175.131:9092,172.26.175.132:9092,172.26.175.133:9092"
       }
     },
     {
@@ -157,7 +157,7 @@
         "mongos":"true",
         "GroupId":"catlpushgroup",
         "logdir":"/root/catlalarminterface/log",
-        "KAFKA_HOST_P":"192.168.2.11:9092,192.168.2.12:9092,192.168.2.13:9092"
+        "KAFKA_HOST_P":"172.26.175.131:9092,172.26.175.132:9092,172.26.175.133:9092"
       }
     },
     {
@@ -173,7 +173,7 @@
         "mongos":"true",
         "GroupId":"catlpushgroup",
         "logdir":"/root/catlalarminterface/log",
-        "KAFKA_HOST_P":"192.168.2.11:9092,192.168.2.12:9092,192.168.2.13:9092"
+        "KAFKA_HOST_P":"172.26.175.131:9092,172.26.175.132:9092,172.26.175.133:9092"
       }
     },
     {
@@ -189,7 +189,7 @@
         "mongos":"true",
         "GroupId":"catlpushgroup",
         "logdir":"/root/catlalarminterface/log",
-        "KAFKA_HOST_P":"192.168.2.11:9092,192.168.2.12:9092,192.168.2.13:9092"
+        "KAFKA_HOST_P":"172.26.175.131:9092,172.26.175.132:9092,172.26.175.133:9092"
       }
     },
     {
@@ -205,7 +205,7 @@
         "mongos":"true",
         "GroupId":"catlpushgroup",
         "logdir":"/root/catlalarminterface/log",
-        "KAFKA_HOST_P":"192.168.2.11:9092,192.168.2.12:9092,192.168.2.13:9092"
+        "KAFKA_HOST_P":"172.26.175.131:9092,172.26.175.132:9092,172.26.175.133:9092"
       }
     },
     {
@@ -221,7 +221,7 @@
         "mongos":"true",
         "GroupId":"catlpushgroup",
         "logdir":"/root/catlalarminterface/log",
-        "KAFKA_HOST_P":"192.168.2.11:9092,192.168.2.12:9092,192.168.2.13:9092"
+        "KAFKA_HOST_P":"172.26.175.131:9092,172.26.175.132:9092,172.26.175.133:9092"
       }
     },
     {
@@ -237,7 +237,7 @@
         "mongos":"true",
         "GroupId":"catlpushgroup",
         "logdir":"/root/catlalarminterface/log",
-        "KAFKA_HOST_P":"192.168.2.11:9092,192.168.2.12:9092,192.168.2.13:9092"
+        "KAFKA_HOST_P":"172.26.175.131:9092,172.26.175.132:9092,172.26.175.133:9092"
       }
     },
     {
@@ -253,7 +253,7 @@
         "mongos":"true",
         "GroupId":"catlpushgroup",
         "logdir":"/root/catlalarminterface/log",
-        "KAFKA_HOST_P":"192.168.2.11:9092,192.168.2.12:9092,192.168.2.13:9092"
+        "KAFKA_HOST_P":"172.26.175.131:9092,172.26.175.132:9092,172.26.175.133:9092"
       }
     },
     {
@@ -269,7 +269,7 @@
         "mongos":"true",
         "GroupId":"catlpushgroup",
         "logdir":"/root/catlalarminterface/log",
-        "KAFKA_HOST_P":"192.168.2.11:9092,192.168.2.12:9092,192.168.2.13:9092"
+        "KAFKA_HOST_P":"172.26.175.131:9092,172.26.175.132:9092,172.26.175.133:9092"
       }
     },
     {
@@ -285,7 +285,7 @@
         "mongos":"true",
         "GroupId":"catlpushgroup",
         "logdir":"/root/catlalarminterface/log",
-        "KAFKA_HOST_P":"192.168.2.11:9092,192.168.2.12:9092,192.168.2.13:9092"
+        "KAFKA_HOST_P":"172.26.175.131:9092,172.26.175.132:9092,172.26.175.133:9092"
       }
     },
     {
@@ -301,7 +301,7 @@
         "mongos":"true",
         "GroupId":"catlpushgroup",
         "logdir":"/root/catlalarminterface/log",
-        "KAFKA_HOST_P":"192.168.2.11:9092,192.168.2.12:9092,192.168.2.13:9092"
+        "KAFKA_HOST_P":"172.26.175.131:9092,172.26.175.132:9092,172.26.175.133:9092"
       }
     },
     {
@@ -317,7 +317,7 @@
         "mongos":"true",
         "GroupId":"catlpushgroup",
         "logdir":"/root/catlalarminterface/log",
-        "KAFKA_HOST_P":"192.168.2.11:9092,192.168.2.12:9092,192.168.2.13:9092"
+        "KAFKA_HOST_P":"172.26.175.131:9092,172.26.175.132:9092,172.26.175.133:9092"
       }
     }
   ]
