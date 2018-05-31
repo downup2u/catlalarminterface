@@ -77,8 +77,8 @@ const getCATLPushedAlarams = (CurDayHour,callbackfn)=>{
     CurDayHour,
     isPushed:false,
     warninglevel:{$gt:0},
-    'Alarm.Details':{$exists:true},
-    $where:'this.Alarm.Details.length>0'
+    'Details':{$exists:true},
+    $where:'this.Details.length>0'
   }).lean().exec((err,list)=>{
     let retlist = [];
     if(!err && !!list){

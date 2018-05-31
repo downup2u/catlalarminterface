@@ -24,3 +24,20 @@ NodeID='1' pm2 start index.js
 NodeID='2' pm2 start index.js
 NodeID='3' pm2 start index.js
 NodeID='4' pm2 start index.js
+
+pm2 restart 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20
+
+#进数据库
+docker run -it mongo:3.4 bash
+mongo --host 192.168.2.16
+use bmskafka
+
+db.realtimealarmhourkafkas.count({});
+db.realtimealarmhours.count({});
+
+db.realtimealarmhours.createIndex({'CurDayHour':1});
+db.realtimealarmhours.createIndex({'id':1});
+
+db.realtimealarmhourkafkas.findOne({});
+
+pm2 stop 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19
