@@ -88,7 +88,7 @@ const getdbdata_alarm = (devicedata,callbackfn)=>{
           objSetOnInsert['cityname'] = _.get(cityinfo,'cityname','');
         }
         else{
-          winston.getlog().error(`${devicedata.DeviceId} 找不到城市信息`);
+          winston.getlog().error(`[${devicedata.DeviceId}]找不到城市信息-->${JSON.stringify(updated_data)}`);
         }
 
         updated_data["$setOnInsert"] = objSetOnInsert;
