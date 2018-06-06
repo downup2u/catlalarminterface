@@ -25,7 +25,11 @@ const getDeviceCities = (callbackfn)=>{
     return res.json();
   }).then((mapdevicecity)=> {
     config.mapdevicecity = _.merge(config.mapdevicecity,mapdevicecity);
-    debug(config.mapdevicecity);
+    debug(config.mapdevicecity['1635100276']);
+    debug(config.mapdevicecity['1632100614']);
+    debug(config.mapdevicecity['1727102116']);
+    debug(config.mapdevicecity['1725101378']);
+    debug(config.mapdevicecity['1635101406']);
     callbackfn(null,true);
   }).catch((e)=>{
     callbackfn(null,true);

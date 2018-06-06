@@ -83,7 +83,7 @@ const getDeviceCities = (callbackfn)=>{
             }
             mapdevicecity[DeviceId] = {
               citycode:v.citycode,
-              targetadcode:v.targetadcode,
+              targetadcode:`${v.targetadcode}`,
               updatetime:v.updatetime,
               cityname
             }
