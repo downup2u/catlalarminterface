@@ -92,6 +92,7 @@ const getDeviceCities = (callbackfn)=>{
       }
       const config_mapdevicecity = _.merge({},mapdevicecity);
       debug(config_mapdevicecity);
+      debug(`devicecitylist--->${devicecitylist.length}`);
       callbackfn(config_mapdevicecity);
   });
 }
