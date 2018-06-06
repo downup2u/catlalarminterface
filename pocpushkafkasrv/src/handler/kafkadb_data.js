@@ -6,6 +6,7 @@ const moment = require('moment');
 const alarmplugin = require('../plugins/alarmfilter/index');
 const deviceplugin = require('../plugins/devicefilter/index');
 const debug = require('debug')('dbdata');
+const winston = require('../log/log.js');
 
 const warninglevelmap = {
   '高':3,
@@ -85,6 +86,9 @@ const getdbdata_alarm = (devicedata,callbackfn)=>{
           objSetOnInsert['citycode'] = _.get(cityinfo,'citycode','');
           objSetOnInsert['adcode'] = _.get(cityinfo,'targetadcode','');
           objSetOnInsert['cityname'] = _.get(cityinfo,'cityname','');
+        }
+        else{
+          winston.getlog().error(`${devicedata.DeviceId} 找不到城市信息`);
         }
 
         updated_data["$setOnInsert"] = objSetOnInsert;

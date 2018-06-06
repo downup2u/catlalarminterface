@@ -4,7 +4,7 @@ const path = require('path');
 const config = require('../config');
 let logger;
 exports.initLog =  ()=>{
-   const filename = "catlkafkapushsrv";//"bms_"+moment().format('YYYY-MM-DD-HHmmss');
+   const filename = `catlkafkapushsrv_${config.NodeID}`;//"bms_"+moment().format('YYYY-MM-DD-HHmmss');
 
   const logfile = filename+".log";
   const logdir = config.logdir || path.resolve(__dirname,'../../../log');
