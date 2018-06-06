@@ -24,7 +24,7 @@ const getDeviceCities = (callbackfn)=>{
   return fetch(url).then((res)=>{
     return res.json();
   }).then((mapdevicecity)=> {
-    config.mapdevicecity = _.merge(config.mapdict,mapdevicecity);
+    config.mapdevicecity = _.merge(config.mapdevicecity,mapdevicecity);
     debug(config.mapdevicecity);
     callbackfn(null,true);
   }).catch((e)=>{
