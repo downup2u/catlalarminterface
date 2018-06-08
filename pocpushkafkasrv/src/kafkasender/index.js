@@ -15,6 +15,8 @@ const pushtokafkasrv = (topicname,payload,producer)=>{
       debug(`send message===>${stringdata},topicname:${topicname}`);
 
       const dbModel = DBModels.RealtimeAlarmHourKafkaModel;
+      payload.idsend = payload.id;
+      payload.NodeID = `${config.NodeID}`;
       payload.create_at = moment().format('YYYY-MM-DD HH:mm:ss');
       const entity = new dbModel(payload);
       entity.save(payload,(err,result)=>{

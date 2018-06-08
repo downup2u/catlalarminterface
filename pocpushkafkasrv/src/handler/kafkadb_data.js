@@ -29,7 +29,6 @@ const getdbdata_alarm = (devicedata,callbackfn)=>{
           DeviceId:result_alarm.DeviceId,
           DataTime:LastRealtimeAlarm.DataTime,
           warninglevel:_.get(warninglevelmap,`${devicedata.warninglevel}`, 0),//<---------注意！！！
-          NodeID:config.NodeID,
           SN64:devicedata.SN64,
           UpdateTime:moment().format('YYYY-MM-DD HH:mm:ss'),
         };
@@ -78,7 +77,8 @@ const getdbdata_alarm = (devicedata,callbackfn)=>{
         });
         let objSetOnInsert =  {
           FirstAlarmTime:LastRealtimeAlarm.DataTime,
-          isPushed:false
+          isPushed:false,
+          NodeID:`${config.NodeID}`,
         };
 
         const cityinfo = config.mapdevicecity[devicedata.DeviceId];
