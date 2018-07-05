@@ -5,7 +5,7 @@ const _ = require('lodash');
 const debug = require('debug')('srv:index');
 const PubSub = require('pubsub-js');
 const config = require('../config');
-const winston = require('./src/log/log.js');
+const winston = require('../log/log.js');
 const setCATLAlaramPushed = require('../everyhourjob/setCATLAlaramPushed');
 
 const pushtokafkasrv = (topicname,payload,producer)=>{
