@@ -39,7 +39,7 @@ everydayjob(()=>{
   startsrv(config);
   kafkasender(()=>{
     everyhourjob(()=>{
-      winston.getlog().info(`第一次启动`);
+      winston.getlog().info(`第一次启动${config.version}`);
     });
   });
 

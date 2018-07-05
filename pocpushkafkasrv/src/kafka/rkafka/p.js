@@ -1,5 +1,5 @@
 const kafka = require('node-rdkafka');
-const winston = require('../../src/log.js');
+const winston = require('../../log/log.js');
 
 const getProducer = (globalconfig,pconfig,onErr)=> {
   return new Promise((resolve, reject) => {

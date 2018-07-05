@@ -15,7 +15,7 @@ let config =  {
   },
   kafka_pconfig1:{
     'metadata.broker.list': process.env.KAFKA_HOST_P || '192.168.2.11:9092,192.168.2.12:9092,192.168.2.13:9092',
-    'dr_cb': true 
+    'dr_cb': true
   },
   kafka_pconfig2:{
   },
@@ -29,7 +29,7 @@ let config =  {
   kafka_dbtopic_p1:process.env.TopicP1 ||'CRM_ALARM_INFO_L1_TEST',
   kafka_dbtopic_p2:process.env.TopicP2 ||'CRM_ALARM_INFO_L2_TEST',
   kafka_dbtopic_p3:process.env.TopicP3 ||'CRM_ALARM_INFO_L3_TEST',
-  version:'1.0.0',
+  version:'1.0.1(0705)',
   globalalarmdevicetable:{},
   gloabaldevicealarmstat_realtime:{},
 
