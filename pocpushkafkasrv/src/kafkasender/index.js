@@ -5,6 +5,7 @@ const _ = require('lodash');
 const debug = require('debug')('srv:index');
 const PubSub = require('pubsub-js');
 const config = require('../config');
+const winston = require('./src/log/log.js');
 const setCATLAlaramPushed = require('../everyhourjob/setCATLAlaramPushed');
 
 const pushtokafkasrv = (topicname,payload,producer)=>{
@@ -26,6 +27,7 @@ const pushtokafkasrv = (topicname,payload,producer)=>{
       });
 
     } catch (err) {
+      winston.getlog().error(`pushtokafkasrv error-->${JSON.stringify(payload)}`);
       debug('A problem occurred when sending our message')
       debug(err)
     }
@@ -39,11 +41,8 @@ const startsrv = (callbackfn)=>{
     debug(err.stack);
     debug(`uncaughtException err---`);
   }).then((producer)=>{
-
     const userDeviceSubscriber = ( msg, data )=>{
-
         pushtokafkasrv(data.topic,data.payload,producer);
-
     };
     debug('kafkaproducer is ready!');
     PubSub.subscribe(`kafkamsgpush`,userDeviceSubscriber);

@@ -1,7 +1,7 @@
 const kafka = require('node-rdkafka');
+const winston = require('../../src/log.js');
 
-
-const initProducer = (globalconfig,pconfig,onErr)=> {
+const getProducer = (globalconfig,pconfig,onErr)=> {
   return new Promise((resolve, reject) => {
     const producer = new kafka.Producer(globalconfig,pconfig);
     producer.on('ready', () => {
@@ -10,9 +10,18 @@ const initProducer = (globalconfig,pconfig,onErr)=> {
       resolve(producer);
     })
     producer.on('event.error', (err)=>{
-        onErr(err);
-        reject(err);
+       onErr(err);
+       if(!!err){
+         winston.getlog().error(`event.error-->${JSON.stringify(report)}`);
+       }
+        // reject(err);
     });
+    producer.on('delivery-report', (err, report)=> {
+      if(!!err){
+        winston.getlog().error(`delivery-report error-->${JSON.stringify(report)}`);
+      }
+    });
+
     // producer.on('disconnected', () => {
     //   //console.log('producer disconnected.');
     //   process.exit(0)
@@ -25,4 +34,4 @@ const initProducer = (globalconfig,pconfig,onErr)=> {
 }
 
 
-module.exports = initProducer;
+module.exports = getProducer;

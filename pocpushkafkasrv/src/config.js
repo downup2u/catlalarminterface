@@ -15,6 +15,7 @@ let config =  {
   },
   kafka_pconfig1:{
     'metadata.broker.list': process.env.KAFKA_HOST_P || '192.168.2.11:9092,192.168.2.12:9092,192.168.2.13:9092',
+    'dr_cb': true 
   },
   kafka_pconfig2:{
   },

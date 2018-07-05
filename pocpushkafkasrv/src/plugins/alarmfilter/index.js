@@ -193,7 +193,6 @@ const dofilter= (DeviceId,LastRealtimeAlarm,callback)=>{
   callback(null,{
     DeviceId,
     CurDayHour,
-
   });
 
 }
