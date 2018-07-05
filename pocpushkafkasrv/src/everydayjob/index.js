@@ -4,6 +4,7 @@ const DBModels = require('../handler/models.js');
 const debug = require('debug')('srv:everydayjob');
 const async = require('async');
 const moment = require('moment');
+const winston = require('../log/log.js');
 
 require('es6-promise').polyfill();
 require('isomorphic-fetch');
@@ -30,8 +31,9 @@ const getDeviceCities = (callbackfn)=>{
     // debug(config.mapdevicecity['1635100276']);
     // debug(config.mapdevicecity['1632100614']);
     // debug(config.mapdevicecity['1727102116']);
-    // debug(config.mapdevicecity['1725101378']);
-    // debug(config.mapdevicecity['1635101406']);
+    // debug(config.mapdevicecity['1635101552']);
+    const info = _.get(config,`mapdevicecity.1635101552`,{});
+    winston.getlog().error(`1635101552-->cityinfo:${JSON.stringify(info)}`);
     callbackfn(null,true);
   }).catch((e)=>{
     callbackfn(null,true);

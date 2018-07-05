@@ -31,8 +31,9 @@ mongoose.connect(config.mongodburl,{
     reconnectTries: Number.MAX_VALUE
   });
 
-debug(`connected success!${moment().format('YYYY-MM-DD HH:mm:ss')}`);
-winston.getlog().info(`start pushsrv ok-->${config.NodeID}`);
+const curtime = moment().format('YYYY-MM-DD HH:mm:ss');
+debug(`connected success!${curtime}`);
+winston.getlog().error(`====>第一次启动${curtime}-->${config.NodeID}`);
 
 
 everydayjob(()=>{
