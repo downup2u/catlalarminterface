@@ -71,8 +71,8 @@ const dbh_alarm =(datasin,callbackfn)=>{
          },devicedata,{upsert:true,new:true}).lean().exec((err,result)=>{
            result.iorder = devicedata.iorder;
            if(!!err){
-             winston.getlog().error(`alarm insert error,${JSON.stringify(devicedata)}`)
-             winston.getlog().error(err);
+             winston.getlog().warn(`alarm insert error,${JSON.stringify(devicedata)}`)
+             winston.getlog().warn(err);
            }
            callbackfn(err,result);
          });
@@ -82,8 +82,8 @@ const dbh_alarm =(datasin,callbackfn)=>{
   async.series(asyncfnsz,(err,result)=>{
 
       if(!!err){
-        winston.getlog().error(`async.series error,${JSON.stringify(datas)}`)
-        winston.getlog().error(err);
+        winston.getlog().warn(`async.series error,${JSON.stringify(datas)}`)
+        winston.getlog().warn(err);
         debug(`async.series error,${JSON.stringify(datas)}`);
         debug(err);
       }
@@ -98,8 +98,8 @@ const dbh_alarm =(datasin,callbackfn)=>{
         if(datas.length !== result.length){
           debug(`dbh_alarm输入输出数据不符,${JSON.stringify(datas)}`);
           debug(`dbh_alarm输入输出数据不符,${JSON.stringify(result)}`);
-          winston.getlog().error(`dbh_alarm输入输出数据不符,${JSON.stringify(datas)}`)
-          winston.getlog().error(`dbh_alarm输入输出数据不符,${JSON.stringify(result)}`)
+          winston.getlog().warn(`dbh_alarm输入输出数据不符,${JSON.stringify(datas)}`)
+          winston.getlog().warn(`dbh_alarm输入输出数据不符,${JSON.stringify(result)}`)
         }
       }
 
