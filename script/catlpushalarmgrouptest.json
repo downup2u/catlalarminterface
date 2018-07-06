@@ -1,8 +1,8 @@
 {
   "apps" : [
     {
-      "name": "catlpushsrv1",
-      "script": "/catlcluster/catlalarminterface/pocpushkafkasrv/index.js",
+      "name": "catlpushalarmgrouptest",
+      "script": "/catlcluster/catlalarminterface/srvstat_testkafkac/index.js",
       "env": {
         "NODE_ENV": "production",
         "DEBUG":"srv:*",

@@ -27,6 +27,7 @@ NodeID='4' pm2 start index.js
 
 pm2 restart 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20
 
+D03 192.168.2.16 121.204.132.39<<---%c?D:8Bm
 #进数据库
 docker run -v /root:/root -it mongo:3.4 bash
 mongo --host 192.168.2.16
