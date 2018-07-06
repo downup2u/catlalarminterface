@@ -1,5 +1,5 @@
 const _ = require('lodash');
-const DBModels = require('../handler/models.js');
+const DBModels = require('./handler/models.js');
 const debug = require('debug')('srvstat_testkafkac:test');
 const winston = require('./log/log.js');
 const async = require('async');
