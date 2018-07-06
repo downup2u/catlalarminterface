@@ -35,7 +35,7 @@ const parseKafkaMsgs = (kafkamsgs,callbackfn)=>{
   _.map(msgs,(msg)=>{
     fnsz.push((callbackfn)=>{
       debug(`msg--->${JSON.stringify(msg)}`)
-      kafkadbh(msg);
+      kafkadbh(msg,callbackfn);
     });//push
   });
   debug(`start parseKafkaMsgs->${fnsz.length}`);
