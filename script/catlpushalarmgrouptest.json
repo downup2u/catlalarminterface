@@ -2,7 +2,7 @@
   "apps" : [
     {
       "name": "catlpushsrv1",
-      "script": "/root/catlalarminterface/pocpushkafkasrv/index.js",
+      "script": "/catlcluster/catlalarminterface/pocpushkafkasrv/index.js",
       "env": {
         "NODE_ENV": "production",
         "DEBUG":"srv:*",
@@ -11,7 +11,7 @@
         "MONGO_URL":"mongodb://localhost/bmskafka",
         "mongos":"true",
         "GroupId":"catlpushalarmgrouptest",
-        "logdir":"/root/catlalarminterface/log",
+        "logdir":"/catlcluster/catlalarminterface/log",
         "KAFKA_HOST_C":"172.26.175.131:9092,172.26.175.132:9092,172.26.175.133:9092"
       },
       "node-args": "--nouse-idle-notification --gc_global --max-old-space-size=40960 --max-new-space-size=40960"

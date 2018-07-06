@@ -2,7 +2,7 @@
   "apps" : [
     {
       "name": "catlpushsrv1",
-      "script": "/root/catlalarminterface/pocpushkafkasrv/index.js",
+      "script": "/catlcluster/catlalarminterface/pocpushkafkasrv/index.js",
       "env": {
         "NODE_ENV": "production",
         "DEBUG":"srv:*",
@@ -11,14 +11,14 @@
         "MONGO_URL":"mongodb://localhost/bmskafka",
         "mongos":"true",
         "GroupId":"catlpushgroup",
-        "logdir":"/root/catlalarminterface/log",
+        "logdir":"/catlcluster/catlalarminterface/log",
         "KAFKA_HOST_P":"172.26.175.131:9092,172.26.175.132:9092,172.26.175.133:9092"
       },
       "node-args": "--nouse-idle-notification --gc_global --max-old-space-size=40960 --max-new-space-size=40960"
     },
     {
       "name": "catlpushsrv2",
-      "script": "/root/catlalarminterface/pocpushkafkasrv/index.js",
+      "script": "/catlcluster/catlalarminterface/pocpushkafkasrv/index.js",
       "env": {
         "NODE_ENV": "production",
         "DEBUG":"srv:*",
@@ -27,14 +27,14 @@
         "MONGO_URL":"mongodb://localhost/bmskafka",
         "mongos":"true",
         "GroupId":"catlpushgroup",
-        "logdir":"/root/catlalarminterface/log",
+        "logdir":"/catlcluster/catlalarminterface/log",
         "KAFKA_HOST_P":"172.26.175.131:9092,172.26.175.132:9092,172.26.175.133:9092"
       },
       "node-args": "--nouse-idle-notification --gc_global --max-old-space-size=40960 --max-new-space-size=40960"
     },
     {
       "name": "catlpushsrv3",
-      "script": "/root/catlalarminterface/pocpushkafkasrv/index.js",
+      "script": "/catlcluster/catlalarminterface/pocpushkafkasrv/index.js",
       "env": {
         "NODE_ENV": "production",
         "DEBUG":"srv:*",
@@ -43,14 +43,14 @@
         "MONGO_URL":"mongodb://localhost/bmskafka",
         "mongos":"true",
         "GroupId":"catlpushgroup",
-        "logdir":"/root/catlalarminterface/log",
+        "logdir":"/catlcluster/catlalarminterface/log",
         "KAFKA_HOST_P":"172.26.175.131:9092,172.26.175.132:9092,172.26.175.133:9092"
       },
       "node-args": "--nouse-idle-notification --gc_global --max-old-space-size=40960 --max-new-space-size=40960"
     },
     {
       "name": "catlpushsrv4",
-      "script": "/root/catlalarminterface/pocpushkafkasrv/index.js",
+      "script": "/catlcluster/catlalarminterface/pocpushkafkasrv/index.js",
       "env": {
         "NODE_ENV": "production",
         "DEBUG":"srv:*",
@@ -59,14 +59,14 @@
         "MONGO_URL":"mongodb://localhost/bmskafka",
         "mongos":"true",
         "GroupId":"catlpushgroup",
-        "logdir":"/root/catlalarminterface/log",
+        "logdir":"/catlcluster/catlalarminterface/log",
         "KAFKA_HOST_P":"172.26.175.131:9092,172.26.175.132:9092,172.26.175.133:9092"
       },
       "node-args": "--nouse-idle-notification --gc_global --max-old-space-size=40960 --max-new-space-size=40960"
     },
     {
       "name": "catlpushsrv5",
-      "script": "/root/catlalarminterface/pocpushkafkasrv/index.js",
+      "script": "/catlcluster/catlalarminterface/pocpushkafkasrv/index.js",
       "env": {
         "NODE_ENV": "production",
         "DEBUG":"srv:*",
@@ -75,14 +75,14 @@
         "MONGO_URL":"mongodb://localhost/bmskafka",
         "mongos":"true",
         "GroupId":"catlpushgroup",
-        "logdir":"/root/catlalarminterface/log",
+        "logdir":"/catlcluster/catlalarminterface/log",
         "KAFKA_HOST_P":"172.26.175.131:9092,172.26.175.132:9092,172.26.175.133:9092"
       },
       "node-args": "--nouse-idle-notification --gc_global --max-old-space-size=40960 --max-new-space-size=40960"
     },
     {
       "name": "catlpushsrv6",
-      "script": "/root/catlalarminterface/pocpushkafkasrv/index.js",
+      "script": "/catlcluster/catlalarminterface/pocpushkafkasrv/index.js",
       "env": {
         "NODE_ENV": "production",
         "DEBUG":"srv:*",
@@ -91,14 +91,14 @@
         "MONGO_URL":"mongodb://localhost/bmskafka",
         "mongos":"true",
         "GroupId":"catlpushgroup",
-        "logdir":"/root/catlalarminterface/log",
+        "logdir":"/catlcluster/catlalarminterface/log",
         "KAFKA_HOST_P":"172.26.175.131:9092,172.26.175.132:9092,172.26.175.133:9092"
       },
       "node-args": "--nouse-idle-notification --gc_global --max-old-space-size=40960 --max-new-space-size=40960"
     },
     {
       "name": "catlpushsrv7",
-      "script": "/root/catlalarminterface/pocpushkafkasrv/index.js",
+      "script": "/catlcluster/catlalarminterface/pocpushkafkasrv/index.js",
       "env": {
         "NODE_ENV": "production",
         "DEBUG":"srv:*",
@@ -107,14 +107,14 @@
         "MONGO_URL":"mongodb://localhost/bmskafka",
         "mongos":"true",
         "GroupId":"catlpushgroup",
-        "logdir":"/root/catlalarminterface/log",
+        "logdir":"/catlcluster/catlalarminterface/log",
         "KAFKA_HOST_P":"172.26.175.131:9092,172.26.175.132:9092,172.26.175.133:9092"
       },
       "node-args": "--nouse-idle-notification --gc_global --max-old-space-size=40960 --max-new-space-size=40960"
     },
     {
       "name": "catlpushsrv8",
-      "script": "/root/catlalarminterface/pocpushkafkasrv/index.js",
+      "script": "/catlcluster/catlalarminterface/pocpushkafkasrv/index.js",
       "env": {
         "NODE_ENV": "production",
         "DEBUG":"srv:*",
@@ -123,14 +123,14 @@
         "MONGO_URL":"mongodb://localhost/bmskafka",
         "mongos":"true",
         "GroupId":"catlpushgroup",
-        "logdir":"/root/catlalarminterface/log",
+        "logdir":"/catlcluster/catlalarminterface/log",
         "KAFKA_HOST_P":"172.26.175.131:9092,172.26.175.132:9092,172.26.175.133:9092"
       },
       "node-args": "--nouse-idle-notification --gc_global --max-old-space-size=40960 --max-new-space-size=40960"
     },
     {
       "name": "catlpushsrv9",
-      "script": "/root/catlalarminterface/pocpushkafkasrv/index.js",
+      "script": "/catlcluster/catlalarminterface/pocpushkafkasrv/index.js",
       "env": {
         "NODE_ENV": "production",
         "DEBUG":"srv:*",
@@ -139,14 +139,14 @@
         "MONGO_URL":"mongodb://localhost/bmskafka",
         "mongos":"true",
         "GroupId":"catlpushgroup",
-        "logdir":"/root/catlalarminterface/log",
+        "logdir":"/catlcluster/catlalarminterface/log",
         "KAFKA_HOST_P":"172.26.175.131:9092,172.26.175.132:9092,172.26.175.133:9092"
       },
       "node-args": "--nouse-idle-notification --gc_global --max-old-space-size=40960 --max-new-space-size=40960"
     },
     {
       "name": "catlpushsrv10",
-      "script": "/root/catlalarminterface/pocpushkafkasrv/index.js",
+      "script": "/catlcluster/catlalarminterface/pocpushkafkasrv/index.js",
       "env": {
         "NODE_ENV": "production",
         "DEBUG":"srv:*",
@@ -155,14 +155,14 @@
         "MONGO_URL":"mongodb://localhost/bmskafka",
         "mongos":"true",
         "GroupId":"catlpushgroup",
-        "logdir":"/root/catlalarminterface/log",
+        "logdir":"/catlcluster/catlalarminterface/log",
         "KAFKA_HOST_P":"172.26.175.131:9092,172.26.175.132:9092,172.26.175.133:9092"
       },
       "node-args": "--nouse-idle-notification --gc_global --max-old-space-size=40960 --max-new-space-size=40960"
     },
     {
       "name": "catlpushsrv11",
-      "script": "/root/catlalarminterface/pocpushkafkasrv/index.js",
+      "script": "/catlcluster/catlalarminterface/pocpushkafkasrv/index.js",
       "env": {
         "NODE_ENV": "production",
         "DEBUG":"srv:*",
@@ -171,14 +171,14 @@
         "MONGO_URL":"mongodb://localhost/bmskafka",
         "mongos":"true",
         "GroupId":"catlpushgroup",
-        "logdir":"/root/catlalarminterface/log",
+        "logdir":"/catlcluster/catlalarminterface/log",
         "KAFKA_HOST_P":"172.26.175.131:9092,172.26.175.132:9092,172.26.175.133:9092"
       },
       "node-args": "--nouse-idle-notification --gc_global --max-old-space-size=40960 --max-new-space-size=40960"
     },
     {
       "name": "catlpushsrv12",
-      "script": "/root/catlalarminterface/pocpushkafkasrv/index.js",
+      "script": "/catlcluster/catlalarminterface/pocpushkafkasrv/index.js",
       "env": {
         "NODE_ENV": "production",
         "DEBUG":"srv:*",
@@ -187,14 +187,14 @@
         "MONGO_URL":"mongodb://localhost/bmskafka",
         "mongos":"true",
         "GroupId":"catlpushgroup",
-        "logdir":"/root/catlalarminterface/log",
+        "logdir":"/catlcluster/catlalarminterface/log",
         "KAFKA_HOST_P":"172.26.175.131:9092,172.26.175.132:9092,172.26.175.133:9092"
       },
       "node-args": "--nouse-idle-notification --gc_global --max-old-space-size=40960 --max-new-space-size=40960"
     },
     {
       "name": "catlpushsrv13",
-      "script": "/root/catlalarminterface/pocpushkafkasrv/index.js",
+      "script": "/catlcluster/catlalarminterface/pocpushkafkasrv/index.js",
       "env": {
         "NODE_ENV": "production",
         "DEBUG":"srv:*",
@@ -203,14 +203,14 @@
         "MONGO_URL":"mongodb://localhost/bmskafka",
         "mongos":"true",
         "GroupId":"catlpushgroup",
-        "logdir":"/root/catlalarminterface/log",
+        "logdir":"/catlcluster/catlalarminterface/log",
         "KAFKA_HOST_P":"172.26.175.131:9092,172.26.175.132:9092,172.26.175.133:9092"
       },
       "node-args": "--nouse-idle-notification --gc_global --max-old-space-size=40960 --max-new-space-size=40960"
     },
     {
       "name": "catlpushsrv14",
-      "script": "/root/catlalarminterface/pocpushkafkasrv/index.js",
+      "script": "/catlcluster/catlalarminterface/pocpushkafkasrv/index.js",
       "env": {
         "NODE_ENV": "production",
         "DEBUG":"srv:*",
@@ -219,14 +219,14 @@
         "MONGO_URL":"mongodb://localhost/bmskafka",
         "mongos":"true",
         "GroupId":"catlpushgroup",
-        "logdir":"/root/catlalarminterface/log",
+        "logdir":"/catlcluster/catlalarminterface/log",
         "KAFKA_HOST_P":"172.26.175.131:9092,172.26.175.132:9092,172.26.175.133:9092"
       },
       "node-args": "--nouse-idle-notification --gc_global --max-old-space-size=40960 --max-new-space-size=40960"
     },
     {
       "name": "catlpushsrv15",
-      "script": "/root/catlalarminterface/pocpushkafkasrv/index.js",
+      "script": "/catlcluster/catlalarminterface/pocpushkafkasrv/index.js",
       "env": {
         "NODE_ENV": "production",
         "DEBUG":"srv:*",
@@ -235,14 +235,14 @@
         "MONGO_URL":"mongodb://localhost/bmskafka",
         "mongos":"true",
         "GroupId":"catlpushgroup",
-        "logdir":"/root/catlalarminterface/log",
+        "logdir":"/catlcluster/catlalarminterface/log",
         "KAFKA_HOST_P":"172.26.175.131:9092,172.26.175.132:9092,172.26.175.133:9092"
       },
       "node-args": "--nouse-idle-notification --gc_global --max-old-space-size=40960 --max-new-space-size=40960"
     },
     {
       "name": "catlpushsrv16",
-      "script": "/root/catlalarminterface/pocpushkafkasrv/index.js",
+      "script": "/catlcluster/catlalarminterface/pocpushkafkasrv/index.js",
       "env": {
         "NODE_ENV": "production",
         "DEBUG":"srv:*",
@@ -251,14 +251,14 @@
         "MONGO_URL":"mongodb://localhost/bmskafka",
         "mongos":"true",
         "GroupId":"catlpushgroup",
-        "logdir":"/root/catlalarminterface/log",
+        "logdir":"/catlcluster/catlalarminterface/log",
         "KAFKA_HOST_P":"172.26.175.131:9092,172.26.175.132:9092,172.26.175.133:9092"
       },
       "node-args": "--nouse-idle-notification --gc_global --max-old-space-size=40960 --max-new-space-size=40960"
     },
     {
       "name": "catlpushsrv17",
-      "script": "/root/catlalarminterface/pocpushkafkasrv/index.js",
+      "script": "/catlcluster/catlalarminterface/pocpushkafkasrv/index.js",
       "env": {
         "NODE_ENV": "production",
         "DEBUG":"srv:*",
@@ -267,14 +267,14 @@
         "MONGO_URL":"mongodb://localhost/bmskafka",
         "mongos":"true",
         "GroupId":"catlpushgroup",
-        "logdir":"/root/catlalarminterface/log",
+        "logdir":"/catlcluster/catlalarminterface/log",
         "KAFKA_HOST_P":"172.26.175.131:9092,172.26.175.132:9092,172.26.175.133:9092"
       },
       "node-args": "--nouse-idle-notification --gc_global --max-old-space-size=40960 --max-new-space-size=40960"
     },
     {
       "name": "catlpushsrv18",
-      "script": "/root/catlalarminterface/pocpushkafkasrv/index.js",
+      "script": "/catlcluster/catlalarminterface/pocpushkafkasrv/index.js",
       "env": {
         "NODE_ENV": "production",
         "DEBUG":"srv:*",
@@ -283,14 +283,14 @@
         "MONGO_URL":"mongodb://localhost/bmskafka",
         "mongos":"true",
         "GroupId":"catlpushgroup",
-        "logdir":"/root/catlalarminterface/log",
+        "logdir":"/catlcluster/catlalarminterface/log",
         "KAFKA_HOST_P":"172.26.175.131:9092,172.26.175.132:9092,172.26.175.133:9092"
       },
       "node-args": "--nouse-idle-notification --gc_global --max-old-space-size=40960 --max-new-space-size=40960"
     },
     {
       "name": "catlpushsrv19",
-      "script": "/root/catlalarminterface/pocpushkafkasrv/index.js",
+      "script": "/catlcluster/catlalarminterface/pocpushkafkasrv/index.js",
       "env": {
         "NODE_ENV": "production",
         "DEBUG":"srv:*",
@@ -299,14 +299,14 @@
         "MONGO_URL":"mongodb://localhost/bmskafka",
         "mongos":"true",
         "GroupId":"catlpushgroup",
-        "logdir":"/root/catlalarminterface/log",
+        "logdir":"/catlcluster/catlalarminterface/log",
         "KAFKA_HOST_P":"172.26.175.131:9092,172.26.175.132:9092,172.26.175.133:9092"
       },
       "node-args": "--nouse-idle-notification --gc_global --max-old-space-size=40960 --max-new-space-size=40960"
     },
     {
       "name": "catlpushsrv20",
-      "script": "/root/catlalarminterface/pocpushkafkasrv/index.js",
+      "script": "/catlcluster/catlalarminterface/pocpushkafkasrv/index.js",
       "env": {
         "NODE_ENV": "production",
         "DEBUG":"srv:*",
@@ -315,7 +315,7 @@
         "MONGO_URL":"mongodb://localhost/bmskafka",
         "mongos":"true",
         "GroupId":"catlpushgroup",
-        "logdir":"/root/catlalarminterface/log",
+        "logdir":"/catlcluster/catlalarminterface/log",
         "KAFKA_HOST_P":"172.26.175.131:9092,172.26.175.132:9092,172.26.175.133:9092"
       },
       "node-args": "--nouse-idle-notification --gc_global --max-old-space-size=40960 --max-new-space-size=40960"
