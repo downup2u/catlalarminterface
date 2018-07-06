@@ -41,7 +41,7 @@ const parseKafkaMsgs = (kafkamsgs,callbackfn)=>{
   debug(`start parseKafkaMsgs->${fnsz.length}`);
   async.parallel(fnsz,(err,result)=>{
     debug(`stop parseKafkaMsgs-->`);
-    callbackfn(resultmsglist);//会导致乱序
+    callbackfn(null,true);//会导致乱序
   });
 }
 //
