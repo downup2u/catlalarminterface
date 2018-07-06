@@ -1,6 +1,6 @@
 const parseKafkaMsgs = require('../kafkadb_data.js');
 const onHandleToDB = require('../kafkadb_dbh.js');
-const debug = require('debug')('dbh:topicindex');
+const debug = require('debug')('srv:topicindex');
 
 const processbatchmsgs = (msgs,callbackfnmsg)=>{
   debug(`消息开始----->`);

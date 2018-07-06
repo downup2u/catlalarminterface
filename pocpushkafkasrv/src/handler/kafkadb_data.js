@@ -5,7 +5,7 @@ const config = require('../config.js');
 const moment = require('moment');
 const alarmplugin = require('../plugins/alarmfilter/index');
 const deviceplugin = require('../plugins/devicefilter/index');
-const debug = require('debug')('dbdata');
+const debug = require('debug')('srv:dbdata');
 const winston = require('../log/log.js');
 
 const warninglevelmap = {

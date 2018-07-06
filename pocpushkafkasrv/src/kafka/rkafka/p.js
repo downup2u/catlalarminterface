@@ -10,10 +10,11 @@ const getProducer = (globalconfig,pconfig,onErr)=> {
       resolve(producer);
     })
     producer.on('event.error', (err)=>{
-       onErr(err);
        if(!!err){
+         debug(err);
          winston.getlog().error(`event.error-->${JSON.stringify(report)}`);
        }
+       onErr(err);
         // reject(err);
     });
     producer.on('delivery-report', (err, report)=> {

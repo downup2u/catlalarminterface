@@ -31,7 +31,7 @@ mongoose.connect(config.mongodburl,{
     reconnectTries: Number.MAX_VALUE
   });
 
-const curtime = moment().format('YYYY-MM-DD HH:mm:ss');
+let curtime = moment().format('YYYY-MM-DD HH:mm:ss');
 debug(`connected success!${curtime}`);
 winston.getlog().error(`====>第一次启动${curtime}-->${config.NodeID}`);
 
@@ -75,6 +75,9 @@ schedule.scheduleJob('0 8 * * *', ()=>{
   });
 
 });
+
+curtime = moment().format('YYYY-MM-DD HH:mm:ss');
+winston.getlog().error(`====>执行到末尾${curtime}-->${config.NodeID}`);
 
 /*
 root@ecs-7063-0001:~# docker run -it confluentinc/cp-kafka:4.0.0 bash

@@ -1,5 +1,5 @@
 const kafka = require('node-rdkafka');
-const debug = require('debug')('kafka');
+const debug = require('debug')('srv:kafka');
 
 debug(kafka.features);
 debug(kafka.librdkafkaVersion);
@@ -18,8 +18,11 @@ const initConsumer =(globalconfig,cconfig,topics,onErr)=> {
     //   onMsg(msg,consumer);
     // });
     consumer.on('event.error', (err)=>{
+        if(!!err){
+          debug(err);
+        }
         onErr(err,consumer);
-        reject(err);
+        // reject(err);
     });
     // consumer.on('disconnected', () => {
     //   process.exit(0)

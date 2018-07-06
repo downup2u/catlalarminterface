@@ -1,6 +1,6 @@
 const async = require('async');
 const _ = require('lodash');
-const debug = require('debug')('dbh:handler');
+const debug = require('debug')('srv:handler');
 const dbh_alarm = require('./dbh/dbh_alarm');
 
 const config = require('../config');

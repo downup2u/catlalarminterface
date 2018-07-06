@@ -1,7 +1,7 @@
 const getConsumer = require('./rkafka/c.js');
 const config = require('../config');
 const winston = require('../log/log.js');
-const debug = require('debug')('dbh:kc');
+const debug = require('debug')('srv:kc');
 const topicindex = require('../handler/pkafkamsg/topicindex');
 
 const numMessages = config.kcmsg;
