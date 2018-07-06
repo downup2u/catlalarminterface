@@ -17,8 +17,9 @@ const onHandleToDB_alarm = (oneRecord,callbackfn)=>{
   entity.save(payload,(err,result)=>{
     debug(`save data--->${JSON.stringify(result)}`);
     // callbackfn(null,true);
-    const idsend = oneRecord.key;
+    const idsend = payload.id;
     const setdata = {
+      key:payload.key,
       topic: payload.topic,
       partition: payload.recvpartition,
       offset: payload.recvoffset
