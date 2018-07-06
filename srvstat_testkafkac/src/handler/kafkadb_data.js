@@ -9,7 +9,7 @@ const winston = require('../log/log.js');
 
 
 const getkafkamsg = (msg)=>{
-  debug(msg);
+  // debug(msg);
   let payload = msg.value.toString();
   if(typeof payload === 'string'){
     try{
@@ -19,6 +19,8 @@ const getkafkamsg = (msg)=>{
       //console.log(`parse json eror ${JSON.stringify(e)}`);
     }
   }
+  payload.key =  msg.key.toString();
+  payload.topic = msg.topic;
   payload.recvpartition = msg.partition;
   payload.recvoffset = msg.offset;
   return payload;
