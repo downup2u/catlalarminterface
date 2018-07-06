@@ -21,9 +21,11 @@ const getProducer = (globalconfig,pconfig,onErr)=> {
     producer.on('delivery-report', (err, report)=> {
       if(!!err){
         debug(err);
+      }
+      if(!!report){
+        debug(report);
         winston.getlog().error(`delivery-report error-->${JSON.stringify(report)}`);
       }
-      debug(report);
     });
 
     // producer.on('disconnected', () => {
