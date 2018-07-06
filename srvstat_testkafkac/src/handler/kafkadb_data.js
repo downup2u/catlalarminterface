@@ -9,6 +9,7 @@ const winston = require('../log/log.js');
 
 
 const getkafkamsg = (msg)=>{
+  debug(msg);
   let payload = msg.value.toString();
   if(typeof payload === 'string'){
     try{

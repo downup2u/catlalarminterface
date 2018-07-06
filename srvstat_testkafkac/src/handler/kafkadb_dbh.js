@@ -40,9 +40,6 @@ const onHandleToDB_alarm = (oneRecord,callbackfn)=>{
 // 	"recvpartition": 2,
 // 	"recvoffset": 788534
 // }
-
-
-  callbackfn(null,true);
 };
 
 const onHandleToDB = (oneRecord,callbackfn)=>{
