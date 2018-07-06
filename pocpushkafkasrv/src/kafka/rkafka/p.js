@@ -1,5 +1,6 @@
 const kafka = require('node-rdkafka');
 const winston = require('../../log/log.js');
+const debug = require('debug')('pushsrv:kafka');
 
 const getProducer = (globalconfig,pconfig,onErr)=> {
   return new Promise((resolve, reject) => {
@@ -19,8 +20,10 @@ const getProducer = (globalconfig,pconfig,onErr)=> {
     });
     producer.on('delivery-report', (err, report)=> {
       if(!!err){
+        debug(err);
         winston.getlog().error(`delivery-report error-->${JSON.stringify(report)}`);
       }
+      debug(report);
     });
 
     // producer.on('disconnected', () => {
