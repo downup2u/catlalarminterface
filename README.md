@@ -37,8 +37,13 @@ db.realtimealarmhourkafkas.findOne();
 db.realtimealarmhours.count({"id":"20180608161725103601"});
 db.realtimealarmhourkafkas.count({"idsend":"20180608161725103601"});
 
+db.realtimealarmhourkafkas.find({"idsend":"20180706141815200281"});
+
+//topic
 
 
+db.realtimealarmhourkafkas.find({"topic":{
+  $exists:true}});
 
 db.realtimealarmhourkafkas.count({"CurDayHour":{
   $in:['2018070201','2018070202','2018070203','2018070204','2018070205','2018070206','2018070207']

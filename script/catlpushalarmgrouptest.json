@@ -5,8 +5,6 @@
       "script": "/catlcluster/catlalarminterface/srvstat_testkafkac/index.js",
       "env": {
         "NODE_ENV": "production",
-        "DEBUG":"srv:*",
-        "DEBUG_COLORS":"1",
         "NodeID":"1",
         "MONGO_URL":"mongodb://localhost/bmskafka",
         "mongos":"true",
