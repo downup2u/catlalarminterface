@@ -3,7 +3,6 @@
     {
       "name": "catlpushsrv1",
       "script": "/root/catlalarminterface/pocpushkafkasrv/index.js",
-      "exec_mode":"fork_mode",
       "env": {
         "NODE_ENV": "production",
         "DEBUG":"srv:*",
@@ -20,7 +19,6 @@
     {
       "name": "catlpushsrv2",
       "script": "/root/catlalarminterface/pocpushkafkasrv/index.js",
-      "exec_mode":"fork_mode",
       "env": {
         "NODE_ENV": "production",
         "DEBUG":"srv:*",
@@ -37,7 +35,6 @@
     {
       "name": "catlpushsrv3",
       "script": "/root/catlalarminterface/pocpushkafkasrv/index.js",
-      "exec_mode":"fork_mode",
       "env": {
         "NODE_ENV": "production",
         "DEBUG":"srv:*",
@@ -54,7 +51,6 @@
     {
       "name": "catlpushsrv4",
       "script": "/root/catlalarminterface/pocpushkafkasrv/index.js",
-      "exec_mode":"fork_mode",
       "env": {
         "NODE_ENV": "production",
         "DEBUG":"srv:*",
@@ -71,7 +67,6 @@
     {
       "name": "catlpushsrv5",
       "script": "/root/catlalarminterface/pocpushkafkasrv/index.js",
-      "exec_mode":"fork_mode",
       "env": {
         "NODE_ENV": "production",
         "DEBUG":"srv:*",
@@ -88,7 +83,6 @@
     {
       "name": "catlpushsrv6",
       "script": "/root/catlalarminterface/pocpushkafkasrv/index.js",
-      "exec_mode":"fork_mode",
       "env": {
         "NODE_ENV": "production",
         "DEBUG":"srv:*",
@@ -105,7 +99,6 @@
     {
       "name": "catlpushsrv7",
       "script": "/root/catlalarminterface/pocpushkafkasrv/index.js",
-      "exec_mode":"fork_mode",
       "env": {
         "NODE_ENV": "production",
         "DEBUG":"srv:*",
@@ -122,7 +115,6 @@
     {
       "name": "catlpushsrv8",
       "script": "/root/catlalarminterface/pocpushkafkasrv/index.js",
-      "exec_mode":"fork_mode",
       "env": {
         "NODE_ENV": "production",
         "DEBUG":"srv:*",
@@ -139,7 +131,6 @@
     {
       "name": "catlpushsrv9",
       "script": "/root/catlalarminterface/pocpushkafkasrv/index.js",
-      "exec_mode":"fork_mode",
       "env": {
         "NODE_ENV": "production",
         "DEBUG":"srv:*",
@@ -156,7 +147,6 @@
     {
       "name": "catlpushsrv10",
       "script": "/root/catlalarminterface/pocpushkafkasrv/index.js",
-      "exec_mode":"fork_mode",
       "env": {
         "NODE_ENV": "production",
         "DEBUG":"srv:*",
@@ -173,7 +163,6 @@
     {
       "name": "catlpushsrv11",
       "script": "/root/catlalarminterface/pocpushkafkasrv/index.js",
-      "exec_mode":"fork_mode",
       "env": {
         "NODE_ENV": "production",
         "DEBUG":"srv:*",
@@ -190,7 +179,6 @@
     {
       "name": "catlpushsrv12",
       "script": "/root/catlalarminterface/pocpushkafkasrv/index.js",
-      "exec_mode":"fork_mode",
       "env": {
         "NODE_ENV": "production",
         "DEBUG":"srv:*",
@@ -207,7 +195,6 @@
     {
       "name": "catlpushsrv13",
       "script": "/root/catlalarminterface/pocpushkafkasrv/index.js",
-      "exec_mode":"fork_mode",
       "env": {
         "NODE_ENV": "production",
         "DEBUG":"srv:*",
@@ -224,7 +211,6 @@
     {
       "name": "catlpushsrv14",
       "script": "/root/catlalarminterface/pocpushkafkasrv/index.js",
-      "exec_mode":"fork_mode",
       "env": {
         "NODE_ENV": "production",
         "DEBUG":"srv:*",
@@ -241,7 +227,6 @@
     {
       "name": "catlpushsrv15",
       "script": "/root/catlalarminterface/pocpushkafkasrv/index.js",
-      "exec_mode":"fork_mode",
       "env": {
         "NODE_ENV": "production",
         "DEBUG":"srv:*",
@@ -258,7 +243,6 @@
     {
       "name": "catlpushsrv16",
       "script": "/root/catlalarminterface/pocpushkafkasrv/index.js",
-      "exec_mode":"fork_mode",
       "env": {
         "NODE_ENV": "production",
         "DEBUG":"srv:*",
@@ -275,7 +259,6 @@
     {
       "name": "catlpushsrv17",
       "script": "/root/catlalarminterface/pocpushkafkasrv/index.js",
-      "exec_mode":"fork_mode",
       "env": {
         "NODE_ENV": "production",
         "DEBUG":"srv:*",
@@ -292,7 +275,6 @@
     {
       "name": "catlpushsrv18",
       "script": "/root/catlalarminterface/pocpushkafkasrv/index.js",
-      "exec_mode":"fork_mode",
       "env": {
         "NODE_ENV": "production",
         "DEBUG":"srv:*",
@@ -309,7 +291,6 @@
     {
       "name": "catlpushsrv19",
       "script": "/root/catlalarminterface/pocpushkafkasrv/index.js",
-      "exec_mode":"fork_mode",
       "env": {
         "NODE_ENV": "production",
         "DEBUG":"srv:*",
@@ -326,7 +307,6 @@
     {
       "name": "catlpushsrv20",
       "script": "/root/catlalarminterface/pocpushkafkasrv/index.js",
-      "exec_mode":"fork_mode",
       "env": {
         "NODE_ENV": "production",
         "DEBUG":"srv:*",
