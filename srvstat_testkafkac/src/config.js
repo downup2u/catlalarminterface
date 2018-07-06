@@ -14,7 +14,7 @@ const config =  {
     'auto.offset.reset':'smallest'
   },
   NodeID:nodeid,
-  logdir:process.env.logdir ||'/root/catlalarminterface/log',
+  logdir:process.env.logdir ||'/catlcluster/catlalarminterface/log',
   kcmsg:!!process.env.kcmsg?parseInt(process.env.kcmsg):200,
   kafka_dbtopic_c1:process.env.TopicP1 ||'CRM_ALARM_INFO_L1_TEST',
   kafka_dbtopic_c2:process.env.TopicP2 ||'CRM_ALARM_INFO_L2_TEST',
