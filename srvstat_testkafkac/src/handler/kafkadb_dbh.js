@@ -16,7 +16,17 @@ const onHandleToDB_alarm = (oneRecord,callbackfn)=>{
   const entity = new dbModel(payload);
   entity.save(payload,(err,result)=>{
     debug(`save data--->${JSON.stringify(result)}`);
-    callbackfn(null,true);
+    // callbackfn(null,true);
+    const idsend = oneRecord.key;
+    const setdata = {
+      topic: payload.topic,
+      partition: payload.recvpartition,
+      offset: payload.recvoffset
+    }
+    const dbModelKafka = DBModels.RealtimeAlarmHourKafkaModel;
+    dbModelKafka.findOneAndUpdate({idsend},{$set:setdata},{upsert:true,new:true}).lean().exec((err,result)=>{
+       callbackfn(null,true);
+    });
   });
 //   {
 // 	"id": "20180628191727206011",
