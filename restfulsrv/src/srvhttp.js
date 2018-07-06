@@ -13,18 +13,18 @@ const _  = require('lodash');
 // const json2xls = require('json2xls');
 
 let startsrv = ()=>{
-
-  const logdir = config.logdir;
-  //console.log("static logdir:" + logdir);
-  app.use('/log', express.static(logdir));
-
-  const admindir = path.join(__dirname,config.publishdiradmin);
-  ////console.log("static admin:" + admindir);
-  app.use('/admin', express.static(admindir));
-
-  const uploaddir = config.uploaddir;
-  //console.log("static upload:" + uploaddir);
-  app.use(config.uploadurl, express.static(uploaddir));
+  // 
+  // const logdir = config.logdir;
+  // //console.log("static logdir:" + logdir);
+  // app.use('/log', express.static(logdir));
+  //
+  // const admindir = path.join(__dirname,config.publishdiradmin);
+  // ////console.log("static admin:" + admindir);
+  // app.use('/admin', express.static(admindir));
+  //
+  // const uploaddir = config.uploaddir;
+  // //console.log("static upload:" + uploaddir);
+  // app.use(config.uploadurl, express.static(uploaddir));
 
 
   ////console.log('uploadurl:' + config.uploadurl);
