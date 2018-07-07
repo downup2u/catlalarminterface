@@ -14,4 +14,6 @@
         "KAFKA_HOST_P":"172.26.175.131:9092,172.26.175.132:9092,172.26.175.133:9092"
       },
       "node-args": "--nouse-idle-notification --gc_global --max-old-space-size=40960 --max-new-space-size=40960"
-    },
+    }
+  ]
+}
