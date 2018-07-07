@@ -1,0 +1,286 @@
+{
+  "apps" : [
+    {
+      "name": "catlpushsrvtest1",
+      "script": "/catlcluster/catlalarminterface/pocpushkafkasrv/index.js",
+      "env": {
+        "NODE_ENV": "production",
+        "DEBUG":"pushsrv:*",
+        "DEBUG_COLORS":"1",
+        "NodeID":"1",
+        "MONGO_URL":"mongodb://localhost/bmskafkatesttest",
+        "mongos":"true",
+        "GroupId":"catlpushgrouptest",
+        "logdir":"/catlcluster/catlalarminterface/logtest",
+        "KAFKA_HOST_P":"192.168.2.11:9092,192.168.2.12:9092,192.168.2.13:9092"
+      },
+      "node-args": "--nouse-idle-notification --gc_global --max-old-space-size=40960 --max-new-space-size=40960"
+    },
+    {
+      "name": "catlpushsrvtest2",
+      "script": "/catlcluster/catlalarminterface/pocpushkafkasrv/index.js",
+      "env": {
+        "NODE_ENV": "production",
+        "NodeID":"2",
+        "MONGO_URL":"mongodb://localhost/bmskafkatest",
+        "mongos":"true",
+        "GroupId":"catlpushgrouptest",
+        "logdir":"/catlcluster/catlalarminterface/logtest",
+        "KAFKA_HOST_P":"192.168.2.11:9092,192.168.2.12:9092,192.168.2.13:9092"
+      },
+      "node-args": "--nouse-idle-notification --gc_global --max-old-space-size=40960 --max-new-space-size=40960"
+    },
+    {
+      "name": "catlpushsrvtest3",
+      "script": "/catlcluster/catlalarminterface/pocpushkafkasrv/index.js",
+      "env": {
+        "NODE_ENV": "production",
+        "NodeID":"3",
+        "MONGO_URL":"mongodb://localhost/bmskafkatest",
+        "mongos":"true",
+        "GroupId":"catlpushgrouptest",
+        "logdir":"/catlcluster/catlalarminterface/log",
+        "KAFKA_HOST_P":"192.168.2.11:9092,192.168.2.12:9092,192.168.2.13:9092"
+      },
+      "node-args": "--nouse-idle-notification --gc_global --max-old-space-size=40960 --max-new-space-size=40960"
+    },
+    {
+      "name": "catlpushsrvtest4",
+      "script": "/catlcluster/catlalarminterface/pocpushkafkasrv/index.js",
+      "env": {
+        "NODE_ENV": "production",
+        "NodeID":"4",
+        "MONGO_URL":"mongodb://localhost/bmskafkatest",
+        "mongos":"true",
+        "GroupId":"catlpushgrouptest",
+        "logdir":"/catlcluster/catlalarminterface/log",
+        "KAFKA_HOST_P":"192.168.2.11:9092,192.168.2.12:9092,192.168.2.13:9092"
+      },
+      "node-args": "--nouse-idle-notification --gc_global --max-old-space-size=40960 --max-new-space-size=40960"
+    },
+    {
+      "name": "catlpushsrvtest5",
+      "script": "/catlcluster/catlalarminterface/pocpushkafkasrv/index.js",
+      "env": {
+        "NODE_ENV": "production",
+        "NodeID":"5",
+        "MONGO_URL":"mongodb://localhost/bmskafkatest",
+        "mongos":"true",
+        "GroupId":"catlpushgrouptest",
+        "logdir":"/catlcluster/catlalarminterface/log",
+        "KAFKA_HOST_P":"192.168.2.11:9092,192.168.2.12:9092,192.168.2.13:9092"
+      },
+      "node-args": "--nouse-idle-notification --gc_global --max-old-space-size=40960 --max-new-space-size=40960"
+    },
+    {
+      "name": "catlpushsrvtest6",
+      "script": "/catlcluster/catlalarminterface/pocpushkafkasrv/index.js",
+      "env": {
+        "NODE_ENV": "production",
+        "NodeID":"6",
+        "MONGO_URL":"mongodb://localhost/bmskafkatest",
+        "mongos":"true",
+        "GroupId":"catlpushgrouptest",
+        "logdir":"/catlcluster/catlalarminterface/log",
+        "KAFKA_HOST_P":"192.168.2.11:9092,192.168.2.12:9092,192.168.2.13:9092"
+      },
+      "node-args": "--nouse-idle-notification --gc_global --max-old-space-size=40960 --max-new-space-size=40960"
+    },
+    {
+      "name": "catlpushsrvtest7",
+      "script": "/catlcluster/catlalarminterface/pocpushkafkasrv/index.js",
+      "env": {
+        "NODE_ENV": "production",
+        "NodeID":"7",
+        "MONGO_URL":"mongodb://localhost/bmskafkatest",
+        "mongos":"true",
+        "GroupId":"catlpushgrouptest",
+        "logdir":"/catlcluster/catlalarminterface/log",
+        "KAFKA_HOST_P":"192.168.2.11:9092,192.168.2.12:9092,192.168.2.13:9092"
+      },
+      "node-args": "--nouse-idle-notification --gc_global --max-old-space-size=40960 --max-new-space-size=40960"
+    },
+    {
+      "name": "catlpushsrvtest8",
+      "script": "/catlcluster/catlalarminterface/pocpushkafkasrv/index.js",
+      "env": {
+        "NODE_ENV": "production",
+        "NodeID":"8",
+        "MONGO_URL":"mongodb://localhost/bmskafkatest",
+        "mongos":"true",
+        "GroupId":"catlpushgrouptest",
+        "logdir":"/catlcluster/catlalarminterface/log",
+        "KAFKA_HOST_P":"192.168.2.11:9092,192.168.2.12:9092,192.168.2.13:9092"
+      },
+      "node-args": "--nouse-idle-notification --gc_global --max-old-space-size=40960 --max-new-space-size=40960"
+    },
+    {
+      "name": "catlpushsrvtest9",
+      "script": "/catlcluster/catlalarminterface/pocpushkafkasrv/index.js",
+      "env": {
+        "NODE_ENV": "production",
+        "NodeID":"9",
+        "MONGO_URL":"mongodb://localhost/bmskafkatest",
+        "mongos":"true",
+        "GroupId":"catlpushgrouptest",
+        "logdir":"/catlcluster/catlalarminterface/log",
+        "KAFKA_HOST_P":"192.168.2.11:9092,192.168.2.12:9092,192.168.2.13:9092"
+      },
+      "node-args": "--nouse-idle-notification --gc_global --max-old-space-size=40960 --max-new-space-size=40960"
+    },
+    {
+      "name": "catlpushsrvtest10",
+      "script": "/catlcluster/catlalarminterface/pocpushkafkasrv/index.js",
+      "env": {
+        "NODE_ENV": "production",
+        "NodeID":"10",
+        "MONGO_URL":"mongodb://localhost/bmskafkatest",
+        "mongos":"true",
+        "GroupId":"catlpushgrouptest",
+        "logdir":"/catlcluster/catlalarminterface/log",
+        "KAFKA_HOST_P":"192.168.2.11:9092,192.168.2.12:9092,192.168.2.13:9092"
+      },
+      "node-args": "--nouse-idle-notification --gc_global --max-old-space-size=40960 --max-new-space-size=40960"
+    },
+    {
+      "name": "catlpushsrvtest11",
+      "script": "/catlcluster/catlalarminterface/pocpushkafkasrv/index.js",
+      "env": {
+        "NODE_ENV": "production",
+        "NodeID":"11",
+        "MONGO_URL":"mongodb://localhost/bmskafkatest",
+        "mongos":"true",
+        "GroupId":"catlpushgrouptest",
+        "logdir":"/catlcluster/catlalarminterface/log",
+        "KAFKA_HOST_P":"192.168.2.11:9092,192.168.2.12:9092,192.168.2.13:9092"
+      },
+      "node-args": "--nouse-idle-notification --gc_global --max-old-space-size=40960 --max-new-space-size=40960"
+    },
+    {
+      "name": "catlpushsrvtest12",
+      "script": "/catlcluster/catlalarminterface/pocpushkafkasrv/index.js",
+      "env": {
+        "NODE_ENV": "production",
+        "NodeID":"12",
+        "MONGO_URL":"mongodb://localhost/bmskafkatest",
+        "mongos":"true",
+        "GroupId":"catlpushgrouptest",
+        "logdir":"/catlcluster/catlalarminterface/log",
+        "KAFKA_HOST_P":"192.168.2.11:9092,192.168.2.12:9092,192.168.2.13:9092"
+      },
+      "node-args": "--nouse-idle-notification --gc_global --max-old-space-size=40960 --max-new-space-size=40960"
+    },
+    {
+      "name": "catlpushsrvtest13",
+      "script": "/catlcluster/catlalarminterface/pocpushkafkasrv/index.js",
+      "env": {
+        "NODE_ENV": "production",
+        "NodeID":"13",
+        "MONGO_URL":"mongodb://localhost/bmskafkatest",
+        "mongos":"true",
+        "GroupId":"catlpushgrouptest",
+        "logdir":"/catlcluster/catlalarminterface/log",
+        "KAFKA_HOST_P":"192.168.2.11:9092,192.168.2.12:9092,192.168.2.13:9092"
+      },
+      "node-args": "--nouse-idle-notification --gc_global --max-old-space-size=40960 --max-new-space-size=40960"
+    },
+    {
+      "name": "catlpushsrvtest14",
+      "script": "/catlcluster/catlalarminterface/pocpushkafkasrv/index.js",
+      "env": {
+        "NODE_ENV": "production",
+        "NodeID":"14",
+        "MONGO_URL":"mongodb://localhost/bmskafkatest",
+        "mongos":"true",
+        "GroupId":"catlpushgrouptest",
+        "logdir":"/catlcluster/catlalarminterface/log",
+        "KAFKA_HOST_P":"192.168.2.11:9092,192.168.2.12:9092,192.168.2.13:9092"
+      },
+      "node-args": "--nouse-idle-notification --gc_global --max-old-space-size=40960 --max-new-space-size=40960"
+    },
+    {
+      "name": "catlpushsrvtest15",
+      "script": "/catlcluster/catlalarminterface/pocpushkafkasrv/index.js",
+      "env": {
+        "NODE_ENV": "production",
+        "NodeID":"15",
+        "MONGO_URL":"mongodb://localhost/bmskafkatest",
+        "mongos":"true",
+        "GroupId":"catlpushgrouptest",
+        "logdir":"/catlcluster/catlalarminterface/log",
+        "KAFKA_HOST_P":"192.168.2.11:9092,192.168.2.12:9092,192.168.2.13:9092"
+      },
+      "node-args": "--nouse-idle-notification --gc_global --max-old-space-size=40960 --max-new-space-size=40960"
+    },
+    {
+      "name": "catlpushsrvtest16",
+      "script": "/catlcluster/catlalarminterface/pocpushkafkasrv/index.js",
+      "env": {
+        "NODE_ENV": "production",
+        "NodeID":"16",
+        "MONGO_URL":"mongodb://localhost/bmskafkatest",
+        "mongos":"true",
+        "GroupId":"catlpushgrouptest",
+        "logdir":"/catlcluster/catlalarminterface/log",
+        "KAFKA_HOST_P":"192.168.2.11:9092,192.168.2.12:9092,192.168.2.13:9092"
+      },
+      "node-args": "--nouse-idle-notification --gc_global --max-old-space-size=40960 --max-new-space-size=40960"
+    },
+    {
+      "name": "catlpushsrvtest17",
+      "script": "/catlcluster/catlalarminterface/pocpushkafkasrv/index.js",
+      "env": {
+        "NODE_ENV": "production",
+        "NodeID":"17",
+        "MONGO_URL":"mongodb://localhost/bmskafkatest",
+        "mongos":"true",
+        "GroupId":"catlpushgrouptest",
+        "logdir":"/catlcluster/catlalarminterface/log",
+        "KAFKA_HOST_P":"192.168.2.11:9092,192.168.2.12:9092,192.168.2.13:9092"
+      },
+      "node-args": "--nouse-idle-notification --gc_global --max-old-space-size=40960 --max-new-space-size=40960"
+    },
+    {
+      "name": "catlpushsrvtest18",
+      "script": "/catlcluster/catlalarminterface/pocpushkafkasrv/index.js",
+      "env": {
+        "NODE_ENV": "production",
+        "NodeID":"18",
+        "MONGO_URL":"mongodb://localhost/bmskafkatest",
+        "mongos":"true",
+        "GroupId":"catlpushgrouptest",
+        "logdir":"/catlcluster/catlalarminterface/log",
+        "KAFKA_HOST_P":"192.168.2.11:9092,192.168.2.12:9092,192.168.2.13:9092"
+      },
+      "node-args": "--nouse-idle-notification --gc_global --max-old-space-size=40960 --max-new-space-size=40960"
+    },
+    {
+      "name": "catlpushsrvtest19",
+      "script": "/catlcluster/catlalarminterface/pocpushkafkasrv/index.js",
+      "env": {
+        "NODE_ENV": "production",
+        "NodeID":"19",
+        "MONGO_URL":"mongodb://localhost/bmskafkatest",
+        "mongos":"true",
+        "GroupId":"catlpushgrouptest",
+        "logdir":"/catlcluster/catlalarminterface/log",
+        "KAFKA_HOST_P":"192.168.2.11:9092,192.168.2.12:9092,192.168.2.13:9092"
+      },
+      "node-args": "--nouse-idle-notification --gc_global --max-old-space-size=40960 --max-new-space-size=40960"
+    },
+    {
+      "name": "catlpushsrvtest20",
+      "script": "/catlcluster/catlalarminterface/pocpushkafkasrv/index.js",
+      "env": {
+        "NODE_ENV": "production",
+        "NodeID":"20",
+        "MONGO_URL":"mongodb://localhost/bmskafkatest",
+        "mongos":"true",
+        "GroupId":"catlpushgrouptest",
+        "logdir":"/catlcluster/catlalarminterface/log",
+        "KAFKA_HOST_P":"192.168.2.11:9092,192.168.2.12:9092,192.168.2.13:9092"
+      },
+      "node-args": "--nouse-idle-notification --gc_global --max-old-space-size=40960 --max-new-space-size=40960"
+    }
+  ]
+}

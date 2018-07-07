@@ -1,0 +1,18 @@
+{
+  "apps" : [
+    {
+      "name": "catlpushalarmgrouptestself",
+      "script": "/catlcluster/catlalarminterface/srvstat_testkafkac/index.js",
+      "env": {
+        "NODE_ENV": "production",
+        "NodeID":"1",
+        "MONGO_URL":"mongodb://localhost/bmskafkatest",
+        "mongos":"true",
+        "GroupId":"catlpushalarmgrouptestself",
+        "logdir":"/catlcluster/catlalarminterface/logtest",
+        "KAFKA_HOST_C":"192.168.2.11:9092,192.168.2.12:9092,192.168.2.13:9092"
+      },
+      "node-args": "--nouse-idle-notification --gc_global --max-old-space-size=40960 --max-new-space-size=40960"
+    }
+    ]
+  }
