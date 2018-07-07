@@ -6,6 +6,7 @@ const moment = require('moment');
 const alarmplugin = require('../plugins/alarmfilter/index');
 const deviceplugin = require('../plugins/devicefilter/index');
 const debug = require('debug')('srv:dbdata');
+const debugm = require('debug')('srvm:dbdata');
 const winston = require('../log/log.js');
 
 const warninglevelmap = {
@@ -139,13 +140,17 @@ const getindexmsgs = (data,callbackfn)=>{
 
     //------取最大的warninglevel
     const config_warninglevel = _.get(config,`gloabaldevicealarmstat_realtime.${devicedata.DeviceId}.warninglevel`,'');
+
+    debugm(`${devicedata.DeviceId}->config:${config_warninglevel}->devicedata:${devicedata.warninglevel}`);
     if(_.get(warninglevelmap,`${config_warninglevel}`,0) >= _.get(warninglevelmap,`${devicedata.warninglevel}`,0)){
       devicedata.warninglevel = config_warninglevel;
+      debugm(`devicedata.warninglevel->${devicedata.warninglevel}`)
     }
     else{
       //update config
       //提升warninglevel
       _.set(config,`gloabaldevicealarmstat_realtime.${devicedata.DeviceId}.warninglevel`,devicedata.warninglevel);
+      debugm(`config.${devicedata.DeviceId}->${gloabaldevicealarmstat_realtime[devicedata.DeviceId].warninglevel}`);
     }
     //------取最大的warninglevel
 

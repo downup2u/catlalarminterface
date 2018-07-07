@@ -5,7 +5,7 @@
       "script": "/catlcluster/catlalarminterface/pocpushkafkasrv/index.js",
       "env": {
         "NODE_ENV": "production",
-        "DEBUG":"pushsrv:*",
+        "DEBUG":"srvm:*",
         "DEBUG_COLORS":"1",
         "NodeID":"1",
         "MONGO_URL":"mongodb://localhost/bmskafka",
