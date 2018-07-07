@@ -138,14 +138,14 @@ const getindexmsgs = (data,callbackfn)=>{
     devicedata.resultalarmmatch = resultalarmmatch;
 
     //------取最大的warninglevel
-    let level = {
-      '高':3,
-      '中':2,
-      '低':1,
-    }
     const config_warninglevel = _.get(config,`gloabaldevicealarmstat_realtime.${devicedata.DeviceId}.warninglevel`,'');
-    if(_.get(level,`${config_warninglevel}`,0) > _.get(level,`${devicedata.warninglevel}`,0)){
+    if(_.get(warninglevelmap,`${config_warninglevel}`,0) >= _.get(warninglevelmap,`${devicedata.warninglevel}`,0)){
       devicedata.warninglevel = config_warninglevel;
+    }
+    else{
+      //update config
+      //提升warninglevel
+      _.set(config,`gloabaldevicealarmstat_realtime.${devicedata.DeviceId}.warninglevel`,devicedata.warninglevel);
     }
     //------取最大的warninglevel
 

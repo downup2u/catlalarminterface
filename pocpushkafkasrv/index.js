@@ -67,6 +67,12 @@ schedule.scheduleJob('*/5 * * * *', ()=>{
   });
 });
 
+schedule.scheduleJob('0 * * * *', ()=>{
+  //每小时更新一次
+  winston.getlog().info(`每小时更新一次`);
+  config.gloabaldevicealarmstat_realtime = {};
+});
+
 
 schedule.scheduleJob('0 8 * * *', ()=>{
   //每天8点更新字典
