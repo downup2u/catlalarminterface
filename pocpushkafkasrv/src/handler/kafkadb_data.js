@@ -150,7 +150,7 @@ const getindexmsgs = (data,callbackfn)=>{
       //update config
       //提升warninglevel
       _.set(config,`gloabaldevicealarmstat_realtime.${devicedata.DeviceId}.warninglevel`,devicedata.warninglevel);
-      debugm(`config.${devicedata.DeviceId}->${gloabaldevicealarmstat_realtime[devicedata.DeviceId].warninglevel}`);
+      debugm(`config.${devicedata.DeviceId}->${config.gloabaldevicealarmstat_realtime[devicedata.DeviceId].warninglevel}`);
     }
     //------取最大的warninglevel
 
