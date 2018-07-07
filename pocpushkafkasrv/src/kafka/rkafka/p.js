@@ -14,7 +14,7 @@ const getProducer = (globalconfig,pconfig,onErr)=> {
     producer.on('event.error', (err)=>{
        if(!!err){
          debug(err);
-         winston.getlog().error(`event.error-->${JSON.stringify(err)}`);
+         winston.getlog().warn(`event.error-->${JSON.stringify(err)}`);
        }
        onErr(err);
         // reject(err);
@@ -38,10 +38,12 @@ const getProducer = (globalconfig,pconfig,onErr)=> {
       }
     });
 
-    // producer.on('disconnected', () => {
-    //   //console.log('producer disconnected.');
-    //   process.exit(0)
-    // });
+    producer.on('disconnected', () => {
+      debug(`producer disconnected.`);
+      winston.getlog().error(`=====生产者断开连接=====`);
+      //console.log('producer disconnected.');
+      // process.exit(0)
+    });
     // producer.on('event.log', function(event) {
     //   //console.log(event)
     // })
