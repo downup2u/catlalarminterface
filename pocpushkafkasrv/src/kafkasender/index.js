@@ -6,7 +6,7 @@ const debug = require('debug')('srv:index');
 const PubSub = require('pubsub-js');
 const config = require('../config');
 const winston = require('../log/log.js');
-const setCATLAlaramPushed = require('../everyhourjob/setCATLAlaramPushed');
+// const setCATLAlaramPushed = require('../everyhourjob/setCATLAlaramPushed');
 
 const pushtokafkasrv = (topicname,payload,producer)=>{
   try {
@@ -21,9 +21,7 @@ const pushtokafkasrv = (topicname,payload,producer)=>{
       payload.create_at = moment().format('YYYY-MM-DD HH:mm:ss');
       const entity = new dbModel(payload);
       entity.save(payload,(err,result)=>{
-        setCATLAlaramPushed(payload.id,(err,result)=>{
-          debug(`setCATLAlaramPushed===>${payload.id}`);
-        });
+
       });
 
     } catch (err) {

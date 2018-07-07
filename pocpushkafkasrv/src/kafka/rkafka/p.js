@@ -1,6 +1,7 @@
 const kafka = require('node-rdkafka');
 const winston = require('../../log/log.js');
 const debug = require('debug')('pushsrv:kafka');
+const setCATLAlaramPushed = require('../../everyhourjob/setCATLAlaramPushed');
 
 const getProducer = (globalconfig,pconfig,onErr)=> {
   return new Promise((resolve, reject) => {
@@ -23,8 +24,17 @@ const getProducer = (globalconfig,pconfig,onErr)=> {
         debug(err);
       }
       if(!!report){
+//         { topic: 'CRM_ALARM_INFO_L1_TEST',
+// 84|catlpus |   pushsrv:kafka   partition: 0,
+// 84|catlpus |   pushsrv:kafka   offset: 838958,
+// 84|catlpus |   pushsrv:kafka   key: <Buffer 32 30 31 38 30 37 30 37 31 31 31 37 32 35 31 30 33 36 34 31>,
+// 84|catlpus |   pushsrv:kafka   size: 326 }
         debug(report);
-        winston.getlog().error(`delivery-report-->${JSON.stringify(report)}`);
+        const key = report.key.toString();
+        setCATLAlaramPushed(key,(err,result)=>{
+          debug(`setCATLAlaramPushed===>${key}`);
+        });
+        // winston.getlog().warn(`delivery-report-->${JSON.stringify(report)}`);
       }
     });
 
