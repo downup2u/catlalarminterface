@@ -1,9 +1,8 @@
 const kafka = require('node-rdkafka');
 const winston = require('../../log/log.js');
 const debug = require('debug')('pushsrv:kafka');
-const setCATLAlaramPushed = require('../../everyhourjob/setCATLAlaramPushed');
 
-const getProducer = (globalconfig,pconfig,onErr)=> {
+const getProducer = (globalconfig,pconfig,onErr,onAck)=> {
   return new Promise((resolve, reject) => {
     const producer = new kafka.Producer(globalconfig,pconfig);
     producer.on('ready', () => {
@@ -31,9 +30,7 @@ const getProducer = (globalconfig,pconfig,onErr)=> {
 // 84|catlpus |   pushsrv:kafka   size: 326 }
         debug(report);
         const key = report.key.toString();
-        setCATLAlaramPushed(key,(err,result)=>{
-          debug(`setCATLAlaramPushed===>${key}`);
-        });
+        onAck(key);
         // winston.getlog().warn(`delivery-report-->${JSON.stringify(report)}`);
       }
     });

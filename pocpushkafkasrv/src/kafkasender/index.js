@@ -6,7 +6,7 @@ const debug = require('debug')('srv:index');
 const PubSub = require('pubsub-js');
 const config = require('../config');
 const winston = require('../log/log.js');
-// const setCATLAlaramPushed = require('../everyhourjob/setCATLAlaramPushed');
+const setCATLAlaramPushed = require('../everyhourjob/setCATLAlaramPushed');
 
 const pushtokafkasrv = (topicname,payload,producer)=>{
   try {
@@ -38,6 +38,10 @@ const startsrv = (callbackfn)=>{
     debug(err);
     debug(err.stack);
     debug(`uncaughtException err---`);
+  },(key)=>{
+    setCATLAlaramPushed(key,(err,result)=>{
+      debug(`setCATLAlaramPushed===>${key}`);
+    });
   }).then((producer)=>{
     const userDeviceSubscriber = ( msg, data )=>{
         pushtokafkasrv(data.topic,data.payload,producer);
