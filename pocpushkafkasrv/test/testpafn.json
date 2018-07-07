@@ -1,7 +1,7 @@
 {
   "apps" : [
     {
-      "name": "testpcatl",
+      "name": "testpafn",
       "script": "/catlcluster/catlalarminterface/pocpushkafkasrv/test/index.js",
       "env": {
         "NODE_ENV": "production",
