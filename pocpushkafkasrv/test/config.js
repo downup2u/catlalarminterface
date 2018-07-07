@@ -12,7 +12,7 @@ let config =  {
   logdir:process.env.logdir ||'/root/catlalarminterface/logtest',
   kafka_dbtopic_topicname:process.env.TopicPTestName ||'CRM_ALARM_INFO_LX_TEST',
   version:'1.0.1(0707)',
-  limit:1000,
+  limit:10000,
 };
 
 
