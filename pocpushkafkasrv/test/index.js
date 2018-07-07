@@ -1,4 +1,4 @@
-const config = require('../src/config');
+const config = require('./config');
 const winston = require('../src/log/log.js');
 const DBModels = require('../src/handler/models.js');
 const _ = require('lodash');
@@ -12,7 +12,7 @@ let maptestdata = {};
 let sendp = [];
 let recvp = [];
 
-debug(`==========`);
+debug(`==========${config.kafka_dbtopic_topicname}`);
 
 winston.initLog();
 process.setMaxListeners(0);
