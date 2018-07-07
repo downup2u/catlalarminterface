@@ -39,7 +39,7 @@
         "MONGO_URL":"mongodb://localhost/bmskafkatest",
         "mongos":"true",
         "GroupId":"catlpushgrouptest",
-        "logdir":"/catlcluster/catlalarminterface/log",
+        "logdir":"/catlcluster/catlalarminterface/logtest",
         "KAFKA_HOST_P":"192.168.2.11:9092,192.168.2.12:9092,192.168.2.13:9092"
       },
       "node-args": "--nouse-idle-notification --gc_global --max-old-space-size=40960 --max-new-space-size=40960"
@@ -53,7 +53,7 @@
         "MONGO_URL":"mongodb://localhost/bmskafkatest",
         "mongos":"true",
         "GroupId":"catlpushgrouptest",
-        "logdir":"/catlcluster/catlalarminterface/log",
+        "logdir":"/catlcluster/catlalarminterface/logtest",
         "KAFKA_HOST_P":"192.168.2.11:9092,192.168.2.12:9092,192.168.2.13:9092"
       },
       "node-args": "--nouse-idle-notification --gc_global --max-old-space-size=40960 --max-new-space-size=40960"
@@ -81,7 +81,7 @@
         "MONGO_URL":"mongodb://localhost/bmskafkatest",
         "mongos":"true",
         "GroupId":"catlpushgrouptest",
-        "logdir":"/catlcluster/catlalarminterface/log",
+        "logdir":"/catlcluster/catlalarminterface/logtest",
         "KAFKA_HOST_P":"192.168.2.11:9092,192.168.2.12:9092,192.168.2.13:9092"
       },
       "node-args": "--nouse-idle-notification --gc_global --max-old-space-size=40960 --max-new-space-size=40960"
@@ -95,7 +95,7 @@
         "MONGO_URL":"mongodb://localhost/bmskafkatest",
         "mongos":"true",
         "GroupId":"catlpushgrouptest",
-        "logdir":"/catlcluster/catlalarminterface/log",
+        "logdir":"/catlcluster/catlalarminterface/logtest",
         "KAFKA_HOST_P":"192.168.2.11:9092,192.168.2.12:9092,192.168.2.13:9092"
       },
       "node-args": "--nouse-idle-notification --gc_global --max-old-space-size=40960 --max-new-space-size=40960"
@@ -109,7 +109,7 @@
         "MONGO_URL":"mongodb://localhost/bmskafkatest",
         "mongos":"true",
         "GroupId":"catlpushgrouptest",
-        "logdir":"/catlcluster/catlalarminterface/log",
+        "logdir":"/catlcluster/catlalarminterface/logtest",
         "KAFKA_HOST_P":"192.168.2.11:9092,192.168.2.12:9092,192.168.2.13:9092"
       },
       "node-args": "--nouse-idle-notification --gc_global --max-old-space-size=40960 --max-new-space-size=40960"
@@ -137,7 +137,7 @@
         "MONGO_URL":"mongodb://localhost/bmskafkatest",
         "mongos":"true",
         "GroupId":"catlpushgrouptest",
-        "logdir":"/catlcluster/catlalarminterface/log",
+        "logdir":"/catlcluster/catlalarminterface/logtest",
         "KAFKA_HOST_P":"192.168.2.11:9092,192.168.2.12:9092,192.168.2.13:9092"
       },
       "node-args": "--nouse-idle-notification --gc_global --max-old-space-size=40960 --max-new-space-size=40960"
@@ -151,7 +151,7 @@
         "MONGO_URL":"mongodb://localhost/bmskafkatest",
         "mongos":"true",
         "GroupId":"catlpushgrouptest",
-        "logdir":"/catlcluster/catlalarminterface/log",
+        "logdir":"/catlcluster/catlalarminterface/logtest",
         "KAFKA_HOST_P":"192.168.2.11:9092,192.168.2.12:9092,192.168.2.13:9092"
       },
       "node-args": "--nouse-idle-notification --gc_global --max-old-space-size=40960 --max-new-space-size=40960"
@@ -165,7 +165,7 @@
         "MONGO_URL":"mongodb://localhost/bmskafkatest",
         "mongos":"true",
         "GroupId":"catlpushgrouptest",
-        "logdir":"/catlcluster/catlalarminterface/log",
+        "logdir":"/catlcluster/catlalarminterface/logtest",
         "KAFKA_HOST_P":"192.168.2.11:9092,192.168.2.12:9092,192.168.2.13:9092"
       },
       "node-args": "--nouse-idle-notification --gc_global --max-old-space-size=40960 --max-new-space-size=40960"
@@ -179,7 +179,7 @@
         "MONGO_URL":"mongodb://localhost/bmskafkatest",
         "mongos":"true",
         "GroupId":"catlpushgrouptest",
-        "logdir":"/catlcluster/catlalarminterface/log",
+        "logdir":"/catlcluster/catlalarminterface/logtest",
         "KAFKA_HOST_P":"192.168.2.11:9092,192.168.2.12:9092,192.168.2.13:9092"
       },
       "node-args": "--nouse-idle-notification --gc_global --max-old-space-size=40960 --max-new-space-size=40960"
@@ -193,7 +193,7 @@
         "MONGO_URL":"mongodb://localhost/bmskafkatest",
         "mongos":"true",
         "GroupId":"catlpushgrouptest",
-        "logdir":"/catlcluster/catlalarminterface/log",
+        "logdir":"/catlcluster/catlalarminterface/logtest",
         "KAFKA_HOST_P":"192.168.2.11:9092,192.168.2.12:9092,192.168.2.13:9092"
       },
       "node-args": "--nouse-idle-notification --gc_global --max-old-space-size=40960 --max-new-space-size=40960"
@@ -207,7 +207,7 @@
         "MONGO_URL":"mongodb://localhost/bmskafkatest",
         "mongos":"true",
         "GroupId":"catlpushgrouptest",
-        "logdir":"/catlcluster/catlalarminterface/log",
+        "logdir":"/catlcluster/catlalarminterface/logtest",
         "KAFKA_HOST_P":"192.168.2.11:9092,192.168.2.12:9092,192.168.2.13:9092"
       },
       "node-args": "--nouse-idle-notification --gc_global --max-old-space-size=40960 --max-new-space-size=40960"
@@ -221,7 +221,7 @@
         "MONGO_URL":"mongodb://localhost/bmskafkatest",
         "mongos":"true",
         "GroupId":"catlpushgrouptest",
-        "logdir":"/catlcluster/catlalarminterface/log",
+        "logdir":"/catlcluster/catlalarminterface/logtest",
         "KAFKA_HOST_P":"192.168.2.11:9092,192.168.2.12:9092,192.168.2.13:9092"
       },
       "node-args": "--nouse-idle-notification --gc_global --max-old-space-size=40960 --max-new-space-size=40960"
@@ -235,7 +235,7 @@
         "MONGO_URL":"mongodb://localhost/bmskafkatest",
         "mongos":"true",
         "GroupId":"catlpushgrouptest",
-        "logdir":"/catlcluster/catlalarminterface/log",
+        "logdir":"/catlcluster/catlalarminterface/logtest",
         "KAFKA_HOST_P":"192.168.2.11:9092,192.168.2.12:9092,192.168.2.13:9092"
       },
       "node-args": "--nouse-idle-notification --gc_global --max-old-space-size=40960 --max-new-space-size=40960"
@@ -249,7 +249,7 @@
         "MONGO_URL":"mongodb://localhost/bmskafkatest",
         "mongos":"true",
         "GroupId":"catlpushgrouptest",
-        "logdir":"/catlcluster/catlalarminterface/log",
+        "logdir":"/catlcluster/catlalarminterface/logtest",
         "KAFKA_HOST_P":"192.168.2.11:9092,192.168.2.12:9092,192.168.2.13:9092"
       },
       "node-args": "--nouse-idle-notification --gc_global --max-old-space-size=40960 --max-new-space-size=40960"
@@ -263,7 +263,7 @@
         "MONGO_URL":"mongodb://localhost/bmskafkatest",
         "mongos":"true",
         "GroupId":"catlpushgrouptest",
-        "logdir":"/catlcluster/catlalarminterface/log",
+        "logdir":"/catlcluster/catlalarminterface/logtest",
         "KAFKA_HOST_P":"192.168.2.11:9092,192.168.2.12:9092,192.168.2.13:9092"
       },
       "node-args": "--nouse-idle-notification --gc_global --max-old-space-size=40960 --max-new-space-size=40960"
@@ -277,7 +277,7 @@
         "MONGO_URL":"mongodb://localhost/bmskafkatest",
         "mongos":"true",
         "GroupId":"catlpushgrouptest",
-        "logdir":"/catlcluster/catlalarminterface/log",
+        "logdir":"/catlcluster/catlalarminterface/logtest",
         "KAFKA_HOST_P":"192.168.2.11:9092,192.168.2.12:9092,192.168.2.13:9092"
       },
       "node-args": "--nouse-idle-notification --gc_global --max-old-space-size=40960 --max-new-space-size=40960"
