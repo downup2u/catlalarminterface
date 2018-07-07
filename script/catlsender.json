@@ -1,0 +1,20 @@
+{
+  "apps" : [
+    {
+      "name": "catlsender",
+      "script": "/catlcluster/catlalarminterface/pocpushkafkasrv/indexsend.js",
+      "env": {
+        "NODE_ENV": "production",
+        "DEBUG":"pushsrv:*",
+        "DEBUG_COLORS":"1",
+        "NodeID":"999",
+        "MONGO_URL":"mongodb://localhost/bmskafka",
+        "mongos":"true",
+        "GroupId":"catlpushgroup",
+        "logdir":"/catlcluster/catlalarminterface/log",
+        "KAFKA_HOST_P":"172.26.175.131:9092,172.26.175.132:9092,172.26.175.133:9092"
+      },
+      "node-args": "--nouse-idle-notification --gc_global --max-old-space-size=40960 --max-new-space-size=40960"
+    },
+  ]
+}

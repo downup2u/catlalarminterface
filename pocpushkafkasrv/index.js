@@ -9,8 +9,7 @@ const moment = require('moment');
 const debug = require('debug')('srv:start');
 const schedule = require('node-schedule');
 const everydayjob = require('./src/everydayjob');
-const everyhourjob = require('./src/everyhourjob');
-const kafkasender = require('./src/kafkasender');
+
 
 debug(`start=====>version:${JSON.stringify(config)}`);
 
@@ -38,12 +37,6 @@ winston.getlog().error(`====>第一次启动${curtime}-->${config.NodeID}`);
 
 everydayjob(()=>{
   startsrv(config);
-  kafkasender(()=>{
-    everyhourjob(()=>{
-      winston.getlog().info(`第一次启动${config.version}`);
-    });
-  });
-
 });
 
 
@@ -60,12 +53,6 @@ everydayjob(()=>{
 // │    └──────────────────── minute (0 - 59)
 // └───────────────────────── second (0 - 59, OPTIONAL)
 
-schedule.scheduleJob('*/5 * * * *', ()=>{
-  //5分钟更新一次
-  everyhourjob(()=>{
-    winston.getlog().info(`5分钟更新一次`);
-  });
-});
 
 schedule.scheduleJob('0 * * * *', ()=>{
   //每小时更新一次

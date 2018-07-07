@@ -75,7 +75,6 @@ const getCATLPushedAlarams = (CurDayHour,callbackfn)=>{
   const dbModel = DBModels.RealtimeAlarmHourModel;
   dbModel.find({
     CurDayHour,
-    NodeID:`${config.NodeID}`,
     isPushed:false,
     warninglevel:{$gt:0},
     'Details':{$exists:true},
