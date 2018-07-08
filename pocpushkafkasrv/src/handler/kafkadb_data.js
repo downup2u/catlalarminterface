@@ -23,13 +23,28 @@ const getdbdata_alarm = (devicedata,callbackfn)=>{
     alarmplugin.dofilter(devicedata.DeviceId,LastRealtimeAlarm,(err,result_alarm)=>{
       // console.log(`result_alarm==>${JSON.stringify(result_alarm)}`);
       if(!err && !!result_alarm){
+        //------取最大的warninglevel
+        const id = `${result_alarm.CurDayHour}${result_alarm.DeviceId}`;
+        // const config_warninglevel = _.get(config,`gloabaldevicealarmstat_realtime.${id}.warninglevel`,'');
+        //
+        // debugm(`${devicedata.DeviceId}->config:${config_warninglevel}->devicedata:${devicedata.warninglevel}`);
+        // if(_.get(warninglevelmap,`${config_warninglevel}`,0) >= _.get(warninglevelmap,`${devicedata.warninglevel}`,0)){
+        //   devicedata.warninglevel = config_warninglevel;
+        //   debugm(`devicedata.warninglevel->${devicedata.warninglevel}`)
+        // }
+        // else{
+        //   //update config
+        //   //提升warninglevel
+        //   _.set(config,`gloabaldevicealarmstat_realtime.${id}.warninglevel`,devicedata.warninglevel);
+        //   debugm(`config.${devicedata.DeviceId}->${config.gloabaldevicealarmstat_realtime[id].warninglevel}`);
+        // }
+        //------取最大的warninglevel
         //含有报警信息
         let updatedset = {
-          id:`${result_alarm.CurDayHour}${result_alarm.DeviceId}`,
+          id,
           CurDayHour:result_alarm.CurDayHour,
           DeviceId:result_alarm.DeviceId,
           DataTime:LastRealtimeAlarm.DataTime,
-          warninglevel:_.get(warninglevelmap,`${devicedata.warninglevel}`, 0),//<---------注意！！！
           SN64:devicedata.SN64,
           UpdateTime:moment().format('YYYY-MM-DD HH:mm:ss'),
         };
@@ -96,6 +111,11 @@ const getdbdata_alarm = (devicedata,callbackfn)=>{
         updated_data["$addToSet"] = {
           Details: { $each: Details},
         };
+        const warninglevel = _.get(warninglevelmap,`${devicedata.warninglevel}`, 0);//<---------注意！！！
+        //https://stackoverflow.com/questions/28859107/mongodb-update-field-if-new-value-is-greater
+        updated_data["$max"] = {
+          warninglevel
+        };
         callbackfn(updated_data);
         return;
       }
@@ -138,21 +158,7 @@ const getindexmsgs = (data,callbackfn)=>{
     }
     devicedata.resultalarmmatch = resultalarmmatch;
 
-    //------取最大的warninglevel
-    const config_warninglevel = _.get(config,`gloabaldevicealarmstat_realtime.${devicedata.DeviceId}.warninglevel`,'');
 
-    debugm(`${devicedata.DeviceId}->config:${config_warninglevel}->devicedata:${devicedata.warninglevel}`);
-    if(_.get(warninglevelmap,`${config_warninglevel}`,0) >= _.get(warninglevelmap,`${devicedata.warninglevel}`,0)){
-      devicedata.warninglevel = config_warninglevel;
-      debugm(`devicedata.warninglevel->${devicedata.warninglevel}`)
-    }
-    else{
-      //update config
-      //提升warninglevel
-      _.set(config,`gloabaldevicealarmstat_realtime.${devicedata.DeviceId}.warninglevel`,devicedata.warninglevel);
-      debugm(`config.${devicedata.DeviceId}->${config.gloabaldevicealarmstat_realtime[devicedata.DeviceId].warninglevel}`);
-    }
-    //------取最大的warninglevel
 
     // utilposition.getpostion_frompos(getpoint(LastHistoryTrack),(retobj)=>{
     //   let newdevicedata = _.merge(devicedata,retobj);

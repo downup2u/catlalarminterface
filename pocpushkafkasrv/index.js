@@ -57,7 +57,7 @@ everydayjob(()=>{
 schedule.scheduleJob('0 * * * *', ()=>{
   //每小时更新一次
   winston.getlog().info(`每小时更新一次`);
-  config.gloabaldevicealarmstat_realtime = {};
+  // config.gloabaldevicealarmstat_realtime = {};
 });
 
 

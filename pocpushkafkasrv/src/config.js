@@ -31,7 +31,7 @@ let config =  {
   kafka_dbtopic_p3:process.env.TopicP3 ||'CRM_ALARM_INFO_L3_TEST',
   version:'1.0.1(0707)',
   globalalarmdevicetable:{},
-  gloabaldevicealarmstat_realtime:{},
+  // gloabaldevicealarmstat_realtime:{},
 
 };
 
