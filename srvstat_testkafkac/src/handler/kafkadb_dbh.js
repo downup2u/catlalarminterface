@@ -12,7 +12,8 @@ const onHandleToDB_alarm = (oneRecord,callbackfn)=>{
   const dbModel = DBModels.KafkaModel;
   const payload = _.clone(oneRecord);
   payload.NodeID = `${config.NodeID}`;
-  payload.create_at = moment().format('YYYY-MM-DD HH:mm:ss');
+  const curtime = moment().format('YYYY-MM-DD HH:mm:ss');
+  payload.create_at = curtime;
   const entity = new dbModel(payload);
   entity.save(payload,(err,result)=>{
     debug(`save data--->${JSON.stringify(result)}`);
@@ -22,10 +23,11 @@ const onHandleToDB_alarm = (oneRecord,callbackfn)=>{
       key:payload.key,
       topic: payload.topic,
       partition: payload.recvpartition,
-      offset: payload.recvoffset
+      offset: payload.recvoffset,
+      updated_at:curtime
     }
     const dbModelKafka = DBModels.RealtimeAlarmHourKafkaModel;
-    dbModelKafka.findOneAndUpdate({idsend},{$set:setdata},{upsert:true,new:true}).lean().exec((err,result)=>{
+    dbModelKafka.findOneAndUpdate({idsend},{$set:setdata},{new:true}).lean().exec((err,result)=>{
        callbackfn(null,true);
     });
   });
