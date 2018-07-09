@@ -10,18 +10,24 @@ const setCATLAlaramPushed = require('../everyhourjob/setCATLAlaramPushed');
 
 const pushtokafkasrv = (topicname,payload,producer)=>{
   try {
+      const curtime = moment().format('YYYY-MM-DD HH:mm:ss');
       const dbModel = DBModels.RealtimeAlarmHourKafkaModel;
       payload.idsend = payload.id;
       payload.NodeID = `${config.NodeID}`;
-      payload.create_at = moment().format('YYYY-MM-DD HH:mm:ss');
-      const entity = new dbModel(payload);
-      entity.save(payload,(err,result)=>{
-        //先保存，后发送
+      payload.create_at = curtime;
+      const dbModelKafka = DBModels.RealtimeAlarmHourKafkaModel;
+      let updated_data = {};
+      updated_data["$set"] = payload;
+      updated_data["$setOnInsert"] = {
+        first_create_at:curtime
+      };
+      dbModelKafka.findOneAndUpdate({idsend:payload.id},updated_data,{new:true,upsert:true}).lean().exec((err,result)=>{
         const senddata = _.omit(payload,['warninglevel']);
         const stringdata = JSON.stringify(senddata);
         producer.produce(topicname, -1, new Buffer(stringdata),payload.id);
         debug(`send message===>${stringdata},topicname:${topicname}`);
       });
+
 
     } catch (err) {
       winston.getlog().error(`pushtokafkasrv error-->${JSON.stringify(payload)}`);
@@ -37,10 +43,23 @@ const startsrv = (callbackfn)=>{
     debug(err);
     debug(err.stack);
     debug(`uncaughtException err---`);
-  },(key)=>{
+  },({key,notify_partition,notify_offset,notify_topic})=>{
     setCATLAlaramPushed(key,(err,result)=>{
       debug(`setCATLAlaramPushed===>${key}`);
     });
+    const notify_time = moment().format('YYYY-MM-DD HH:mm:ss');
+    const dbModelKafka = DBModels.RealtimeAlarmHourKafkaModel;
+    dbModelKafka.findOneAndUpdate({idsend:key},{
+        $set:{
+          notify_time,
+          notify_partition,
+          notify_offset,
+          notify_topic
+        }
+      },{new:true}).lean().exec((err,result)=>{
+
+      });
+
   }).then((producer)=>{
     const userDeviceSubscriber = ( msg, data )=>{
         pushtokafkasrv(data.topic,data.payload,producer);
