@@ -275,11 +275,23 @@ db.realtimealarmhourkafkas.count({"CurDayHour":{
   $in:['2018070201','2018070202','2018070203','2018070204','2018070205','2018070206','2018070207']
   }})
 
-db.realtimealarmhourkafkas.count({"DataTime":{$gte:'2018-07-02 00:00:00',$lt:'2018-07-03 00:00:00'}})
+db.realtimealarmhourkafkas.count({"DataTime":{$gte:'2018-07-09 05:00:00',$lt:'2018-07-09 09:00:00'}})
+db.kafkas.count({"DataTime":{$gte:'2018-07-09 05:00:00',$lt:'2018-07-09 09:00:00'}})
 
 
-db.realtimealarmhourkafkas.count({});
-db.realtimealarmhours.count({});
+
+kafkas
+realtimealarmhourkafkas
+realtimealarmhours
+
+db.realtimealarmhourkafkas.count({'CurDayHour':"2018070908",topic:{$exists:true}});
+
+
+db.realtimealarmhours.count({'CurDayHour':"2018070908"});
+
+db.realtimealarmhourkafkas.count({'CurDayHour':"2018070908"});
+db.kafkas.count({'CurDayHour':"2018070908"});
+
 
 db.realtimealarmhours.createIndex({'CurDayHour':1});
 db.realtimealarmhours.createIndex({'id':1});

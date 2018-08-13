@@ -30,7 +30,12 @@ const getProducer = (globalconfig,pconfig,onErr,onAck)=> {
 // 84|catlpus |   pushsrv:kafka   size: 326 }
         debug(report);
         const key = report.key.toString();
-        onAck(key);
+        onAck({
+          key,
+          notify_partition:report.partition,
+          notify_offset:report.offset,
+          notify_topic:report.topic
+        });
         // winston.getlog().warn(`delivery-report-->${JSON.stringify(report)}`);
       }
     });
