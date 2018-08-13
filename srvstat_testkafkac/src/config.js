@@ -16,9 +16,9 @@ const config =  {
   NodeID:nodeid,
   logdir:process.env.logdir ||'/catlcluster/catlalarminterface/log',
   kcmsg:!!process.env.kcmsg?parseInt(process.env.kcmsg):200,
-  kafka_dbtopic_c1:process.env.TopicP1 ||'CRM_ALARM_INFO_L1_TEST',
-  kafka_dbtopic_c2:process.env.TopicP2 ||'CRM_ALARM_INFO_L2_TEST',
-  kafka_dbtopic_c3:process.env.TopicP3 ||'CRM_ALARM_INFO_L3_TEST',
+  kafka_dbtopic_c1:process.env.TopicP1 ||'CRM_ALARM_INFO_L1',
+  kafka_dbtopic_c2:process.env.TopicP2 ||'CRM_ALARM_INFO_L2',
+  kafka_dbtopic_c3:process.env.TopicP3 ||'CRM_ALARM_INFO_L3',
   version:'1.0.1(0705)',
 };
 

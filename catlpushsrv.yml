@@ -21,7 +21,7 @@ services:
       - NodeID=211
       - kcmsg=1000
       - TopicC=pbmsindex
-      - TopicP1=CRM_ALARM_INFO_L1_TEST
-      - TopicP2=CRM_ALARM_INFO_L2_TEST
-      - TopicP3=CRM_ALARM_INFO_L3_TEST
+      - TopicP1=CRM_ALARM_INFO_L1
+      - TopicP2=CRM_ALARM_INFO_L2
+      - TopicP3=CRM_ALARM_INFO_L3
     network_mode: "host"

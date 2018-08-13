@@ -10,7 +10,7 @@ let config =  {
   },
   NodeID:nodeid,
   logdir:process.env.logdir ||'/root/catlalarminterface/logtest',
-  kafka_dbtopic_topicname:process.env.TopicPTestName ||'CRM_ALARM_INFO_LX_TEST',
+  kafka_dbtopic_topicname:process.env.TopicPTestName ||'CRM_ALARM_INFO_LX',
   version:'1.0.1(0707)',
   limit:10000,
 };
