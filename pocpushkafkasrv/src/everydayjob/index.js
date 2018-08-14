@@ -61,8 +61,7 @@ const clearSenderRealtimeAlarmHour = (callbackfn)=>{
   dbModel.remove({
     CurDayHour:{
       '$lte':oneWeekago,
-    },
-    NodeID:`${config.NodeID}`,
+    }
   },(err,result)=>{
     debug(`RealtimeAlarmHour->${config.NodeID}删除小于${oneWeekago}的数据`);
     callbackfn(null,true);
@@ -76,8 +75,7 @@ const clearSenderRealtimeAlarmHourKafka = (callbackfn)=>{
   dbModel.remove({
     CurDayHour:{
       '$lte':oneWeekago,
-    },
-    NodeID:`${config.NodeID}`,
+    }
   },(err,result)=>{
     debug(`RealtimeAlarmHourKafka->${config.NodeID}删除小于${oneWeekago}的数据`);
     callbackfn(null,true);
@@ -94,8 +92,12 @@ db.realtimealarmhours.count({
 
 
 const everydayjob = (callbackfn)=>{
-  const asyncsz = [getDataDict,getDeviceCities,getSystemconfig,clearSenderRealtimeAlarmHour,clearSenderRealtimeAlarmHourKafka];
-  async.parallel(asyncsz,(err,result)=>{
+  let asyncsz = [getDataDict,getDeviceCities,getSystemconfig];
+  if(config.isdelflag){
+    asyncsz.push(clearSenderRealtimeAlarmHour);
+    asyncsz.push(clearSenderRealtimeAlarmHourKafka);
+  }
+  async.parallelLimit(asyncsz,1,(err,result)=>{
     callbackfn(null,true);
   });
 };

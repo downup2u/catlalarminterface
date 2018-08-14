@@ -5,6 +5,9 @@ http://3005//apicatl/location/0
 
 curl http://192.168.2.16:3005/apicatl/location/1719100251
 
+curl http://192.168.2.16:3005/apisys/getDataDict
+curl http://192.168.2.16:3005/apisys/getDeviceCities
+curl http://192.168.2.16:3005/apisys/getSystemconfig
 
 121.204.133.201	 
 ----------
@@ -55,7 +58,18 @@ db.realtimealarmhourkafkas.count({"idsend":"20180608161725103601"});
 db.realtimealarmhourkafkas.find({"idsend":"20180706141815200281"});
 
 //topic
+db.realtimealarmhours.count({ "CurDayHour" : "2018081414"})
+db.realtimealarmhourkafkas.count({ "CurDayHour" : "2018081414"})
 
+db.realtimealarmhours.findOne({ "CurDayHour" : "2018081414"})
+
+db.realtimealarmhourkafkas.count(CurDayHour:{
+    '$lte':"2018081114",
+  });
+
+  db.realtimealarmhourkafkas.remove(CurDayHour:{
+      '$lte':"2018081114",
+    });
 //检查 realtimealarmhourkafkas & kafkas 个数是否匹配
 db.realtimealarmhourkafkas.count({
   "DataTime":{$gte:'2018-07-09 10:00:00',$lt:'2018-07-10 10:00:00'}
@@ -151,6 +165,9 @@ db.kafkas.find({
 },{DeviceId:1,"CurDayHour" :1}).sort({DeviceId:1});
 
 
+
+
+
 db.realtimealarmhourkafkas.count({
   "CurDayHour" : "2018070808"
 },{DeviceId:1,"CurDayHour" :1}).sort({DeviceId:1});
@@ -161,7 +178,7 @@ db.kafkas.count({
 
 
 db.realtimealarmhours.find({
-  "CurDayHour" : "2018070807",
+  "CurDayHour" : "2018081414",
   warninglevel:{$gt:0},
   'Details':{$exists:true},
   $where:'this.Details.length>0'

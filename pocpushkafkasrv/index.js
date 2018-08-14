@@ -32,7 +32,7 @@ mongoose.connect(config.mongodburl,{
 
 let curtime = moment().format('YYYY-MM-DD HH:mm:ss');
 debug(`connected success!${curtime}`);
-winston.getlog().error(`====>第一次启动${curtime}-->${config.NodeID}`);
+winston.getlog().error(`====>第一次启动version:${config.version},${curtime}-->${config.NodeID},isdelflag:${config.isdelflag}`);
 
 
 everydayjob(()=>{

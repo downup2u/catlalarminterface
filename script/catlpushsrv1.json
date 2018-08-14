@@ -7,6 +7,7 @@
         "NODE_ENV": "production",
         "DEBUG":"srvm:*",
         "DEBUG_COLORS":"1",
+        "isdelflag":"true",
         "NodeID":"1",
         "MONGO_URL":"mongodb://localhost/bmskafka",
         "mongos":"true",
