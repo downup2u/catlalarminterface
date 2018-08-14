@@ -1,0 +1,14 @@
+{
+  "apps" : [
+    {
+      "name": "restfulsrv",
+      "script": "/catlcluster/catlalarminterface/restfulsrv/index.js",
+      "env": {
+        "NODE_ENV": "production",
+        "DEBUG":"srvapp:*",
+        "DEBUG_COLORS":"1",
+      },
+      "node-args": "--nouse-idle-notification --gc_global --max-old-space-size=40960 --max-new-space-size=40960"
+    },
+  ]
+}
