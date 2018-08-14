@@ -7,6 +7,8 @@
         "NODE_ENV": "production",
         "DEBUG":"srvapp:*",
         "DEBUG_COLORS":"1",
+        "logdir":"/catlcluster/catlalarminterface/log",
+        "MONGO_URL":"mongodb://192.168.2.17:27007,192.168.2.18:27007/bmscatl?readPreference=secondaryPreferred"
       },
       "node-args": "--nouse-idle-notification --gc_global --max-old-space-size=40960 --max-new-space-size=40960"
     },

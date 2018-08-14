@@ -3,6 +3,9 @@ const debug  = require('debug')('srvapp:index');
 const mongoose     = require('mongoose');
 const _ = require("lodash");
 const moment = require('moment');
+const schedule = require('node-schedule');
+const async  = require('async');
+const winston = require('../log/log.js');
 //设备
 const Schema       = mongoose.Schema;
 //系统设置
@@ -104,30 +107,63 @@ const getSystemconfig = (callbackfn)=>{
   });
 };
 
-const startviews = (app)=>{
-  //http://localhost:3005/apisys/getDataDict
-  app.get('/apisys/getDataDict', (req, res)=> {
+let resultjson_getDataDict = {};
+let resultjson_getDeviceCities = {};
+let resultjson_getSystemconfig = {};
+
+const loadtocache = (callbackfn)=>{
+  let asyncsz = [];
+  asyncsz.push((callbackfn)=>{
     getDataDict((resultjson)=>{
-      res.status(200)
-          .json(resultjson);
+      resultjson_getDataDict = resultjson;
+      callbackfn(null,true);
     });
-
-	});
-  //http://localhost:3005/apisys/getDeviceCities
-  app.get('/apisys/getDeviceCities',(req, res)=> {//middlewareauth,
+  });
+  asyncsz.push((callbackfn)=>{
     getDeviceCities((resultjson)=>{
-      res.status(200)
-          .json(resultjson);
+      resultjson_getDeviceCities = resultjson;
+      callbackfn(null,true);
     });
   });
-  //http://localhost:3005/apisys/getSystemconfig
-  app.get('/apisys/getSystemconfig',(req, res)=> {//middlewareauth,
+  asyncsz.push((callbackfn)=>{
     getSystemconfig((resultjson)=>{
-      res.status(200)
-          .json(resultjson);
+      resultjson_getSystemconfig = resultjson;
+      callbackfn(null,true);
     });
   });
 
+  async.parallelLimit(asyncsz,1,(err,result)=>{
+    callbackfn(null,true);
+  });
+}
+
+schedule.scheduleJob('0 7 * * *', ()=>{
+  //每天7点更新字典
+  loadtocache(()=>{
+    winston.getlog().info(`每天7点更新字典`);
+  });
+
+});
+
+const startviews = (app)=>{
+  loadtocache(()=>{
+    winston.getlog().info(`成功加载数据`);
+    //http://localhost:3005/apisys/getDataDict
+    app.get('/apisys/getDataDict', (req, res)=> {
+        res.status(200)
+            .json(resultjson_getDataDict);
+  	});
+    //http://localhost:3005/apisys/getDeviceCities
+    app.get('/apisys/getDeviceCities',(req, res)=> {//middlewareauth,
+      res.status(200)
+          .json(resultjson_getDeviceCities);
+    });
+    //http://localhost:3005/apisys/getSystemconfig
+    app.get('/apisys/getSystemconfig',(req, res)=> {//middlewareauth,
+      res.status(200)
+          .json(resultjson_getSystemconfig);
+    });
+  });
 };
 
 module.exports= startviews;

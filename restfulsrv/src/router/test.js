@@ -5,6 +5,7 @@ const _ = require("lodash");
 const moment = require('moment');
 const jwt = require('jsonwebtoken');
 const pwd = require('../util/pwd.js');
+const winston = require('../log/log.js');
 //设备
 const Schema       = mongoose.Schema;
 const DeviceSchema = new Schema({
@@ -102,6 +103,7 @@ const startviews = (app)=>{
 
   app.get('/apicatl/location',middlewareauth,(req, res)=> {//middlewareauth,
     const DeviceId = req.query.DeviceId;
+    winston.getlog().info(`/apicatl/location-->${DeviceId}`);
     const deviceModel = DeviceModel;
     deviceModel.findOne({DeviceId}).lean().exec((err,deviceinfo)=>{
       debug(err);
