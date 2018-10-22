@@ -69,7 +69,9 @@ const dbh_alarm =(datasin,callbackfn)=>{
         dbModel.findOneAndUpdate({
         		id
          },devicedata,{upsert:true,new:true}).lean().exec((err,result)=>{
-           result.iorder = devicedata.iorder;
+           if(!!result){
+             result.iorder = devicedata.iorder;
+           }
            if(!!err){
              winston.getlog().warn(`alarm insert error,${JSON.stringify(devicedata)}`)
              winston.getlog().warn(err);
