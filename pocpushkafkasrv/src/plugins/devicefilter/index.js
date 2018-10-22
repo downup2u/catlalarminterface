@@ -6,6 +6,7 @@ const winston = require('../../log/log.js');
 /*
 1、从kafka中获取的数据，预先转换：
 1>将AL_TROUBLE_CODE_2转成
+//注意：不能从监控系统中照抄
 */
 const devicedatapile = (data)=>{
   let newdata = data;
@@ -50,8 +51,18 @@ const devicedatapile = (data)=>{
       }
     }
 
+    //notice!!!!
+    let TROUBLE_CODE_LIST = [];
+    _.map(AL_TROUBLE_CODE_2,(errcode)=>{
+      const fieldname = getFieldname(CANType,errcode);
+      newAlarm[fieldname] = 1;
+      TROUBLE_CODE_LIST.push({
+        errorcode:errcode,
+        fieldname
+      })
+    });
     _.set(newdata,'BMSData.Alarm',newAlarm);
-    _.set(newdata,'BMSData.Alarm.TROUBLE_CODE_LIST',AL_TROUBLE_CODE_2);//新增一个字段TROUBLE_CODE_LIST
+    _.set(newdata,'BMSData.Alarm.TROUBLE_CODE_LIST',TROUBLE_CODE_LIST);//新增一个字段TROUBLE_CODE_LIST
 
   }
   return newdata;
