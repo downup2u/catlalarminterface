@@ -33,7 +33,7 @@ const getDeviceCities = (callbackfn)=>{
     // debug(config.mapdevicecity['1727102116']);
     // debug(config.mapdevicecity['1635101552']);
     const info = _.get(config,`mapdevicecity.1635101552`,{});
-    winston.getlog().error(`1635101552-->cityinfo:${JSON.stringify(info)}`);
+    // winston.getlog().error(`1635101552-->cityinfo:${JSON.stringify(info)}`);
     callbackfn(null,true);
   }).catch((e)=>{
     callbackfn(null,true);
