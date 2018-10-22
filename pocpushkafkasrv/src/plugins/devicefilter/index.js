@@ -1,6 +1,8 @@
 const _ = require('lodash');
 const getFieldname = require('./mapalarmtroublecode');
 const debug = require("debug")("alarmpush");
+const config = require('../../config.js');
+const winston = require('../../log/log.js');
 /*
 1、从kafka中获取的数据，预先转换：
 1>将AL_TROUBLE_CODE_2转成
