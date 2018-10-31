@@ -78,18 +78,28 @@ const getdbdata_alarm = (devicedata,callbackfn)=>{
         });
 
         _.map(TROUBLE_CODE_LIST,(v)=>{
-          const value = mapFieldName[v.fieldname];
+          const value = config.mapwarningrulelevelit[v.fieldname];
           if(!!value){
-            const {id,description,warninglevel} = value;
-            if(warninglevel > 0){
-              Details.push({
-                id,
-                description,
-                errorcode:`${v.errorcode}`,
-                warninglevel,
-              });
-            }
+            const {id,description,warninglevel,errorcode} = value;
+            Details.push({
+              id,
+              description,
+              errorcode:`${v.errorcode}`,
+              warninglevel,
+            });
           }
+          // const value = mapFieldName[v.fieldname];
+          // if(!!value){
+          //   const {id,description,warninglevel} = value;
+          //   if(warninglevel > 0){
+          //     Details.push({
+          //       id,
+          //       description,
+          //       errorcode:`${v.errorcode}`,
+          //       warninglevel,
+          //     });
+          //   }
+          // }
         });
         let objSetOnInsert =  {
           FirstAlarmTime:LastRealtimeAlarm.DataTime,

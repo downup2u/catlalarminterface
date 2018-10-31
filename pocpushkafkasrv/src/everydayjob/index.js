@@ -32,7 +32,7 @@ const getDeviceCities = (callbackfn)=>{
     // debug(config.mapdevicecity['1632100614']);
     // debug(config.mapdevicecity['1727102116']);
     // debug(config.mapdevicecity['1635101552']);
-    const info = _.get(config,`mapdevicecity.1635101552`,{});
+    // const info = _.get(config,`mapdevicecity.1635101552`,{});
     // winston.getlog().error(`1635101552-->cityinfo:${JSON.stringify(info)}`);
     callbackfn(null,true);
   }).catch((e)=>{
@@ -41,13 +41,54 @@ const getDeviceCities = (callbackfn)=>{
 
 }
 
+const getSystemConfigIT = (systemconfig)=>{
+  //处理systemconfig
+  //输入原始的systemconfig的值
+  //过滤warningrulelevelit
+  const warningrulelevelit = systemconfig.warningrulelevelit || [];
+  let mapwarningrulelevelit = {};
+  _.map(warningrulelevelit,(v)=>{
+    mapwarningrulelevelit[v.id] = v;
+  });
+  const warningrulelevel0 = systemconfig.warningrulelevel0 || [];
+  let warningrulelevel0_new = [];
+  const warningrulelevel1 = systemconfig.warningrulelevel1 || [];
+  let warningrulelevel1_new = [];
+  const warningrulelevel2 = systemconfig.warningrulelevel2 || [];
+  let warningrulelevel2_new = [];
+  _.map(warningrulelevel0,(v)=>{
+    if(!!mapwarningrulelevelit[v.name]){
+      warningrulelevel0_new.push(v);
+    }
+  });
+  _.map(warningrulelevel1,(v)=>{
+    if(!!mapwarningrulelevelit[v.name]){
+      warningrulelevel1_new.push(v);
+    }
+  });
+  _.map(warningrulelevel2,(v)=>{
+    if(!!mapwarningrulelevelit[v.name]){
+      warningrulelevel2_new.push(v);
+    }
+  });
+
+  return {
+    warningrulelevel0:warningrulelevel0_new,
+    warningrulelevel1:warningrulelevel1_new,
+    warningrulelevel2:warningrulelevel2_new,
+    mapwarningrulelevelit
+  }
+}
+
 const getSystemconfig  = (callbackfn)=>{
   const url = `${config.dbsysurl}/getSystemconfig`;
   return fetch(url).then((res)=>{
     return res.json();
   }).then((systemconfig)=> {
-    config.systemconfig = systemconfig;
+    config.systemconfig = getSystemConfigIT(systemconfig);
     debug(config.systemconfig);
+    winston.getlog().log(`获取实际配置:`);
+    winston.getlog().log(config.systemconfig);
     callbackfn(null,true);
   }).catch((e)=>{
     callbackfn(null,true);
