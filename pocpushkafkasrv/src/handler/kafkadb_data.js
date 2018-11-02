@@ -78,7 +78,7 @@ const getdbdata_alarm = (devicedata,callbackfn)=>{
         });
 
         _.map(TROUBLE_CODE_LIST,(v)=>{
-          const value = config.mapwarningrulelevelit[v.fieldname];
+          const value = config.systemconfig.mapwarningrulelevelit[v.fieldname];
           if(!!value){
             const {id,description,warninglevel,errorcode} = value;
             Details.push({
