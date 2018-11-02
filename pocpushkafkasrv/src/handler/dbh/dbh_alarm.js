@@ -84,7 +84,8 @@ const dbh_alarm =(datasin,callbackfn)=>{
   async.series(asyncfnsz,(err,result)=>{
 
       if(!!err){
-        winston.getlog().warn(`async.series error,${JSON.stringify(datas)}`)
+        winston.getlog().warn(`async.series error----`)
+        winston.getlog().warn(datas);
         winston.getlog().warn(err);
         debug(`async.series error,${JSON.stringify(datas)}`);
         debug(err);

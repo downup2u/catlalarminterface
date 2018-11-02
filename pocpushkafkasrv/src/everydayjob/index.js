@@ -87,8 +87,8 @@ const getSystemconfig  = (callbackfn)=>{
   }).then((systemconfig)=> {
     config.systemconfig = getSystemConfigIT(systemconfig);
     debug(config.systemconfig);
-    winston.getlog().log(`获取实际配置:`);
-    winston.getlog().log(config.systemconfig);
+    winston.getlog().info(`获取实际配置:`);
+    winston.getlog().info(config.systemconfig);
     callbackfn(null,true);
   }).catch((e)=>{
     winston.getlog().error(`发生异常:`);
