@@ -91,6 +91,8 @@ const getSystemconfig  = (callbackfn)=>{
     winston.getlog().log(config.systemconfig);
     callbackfn(null,true);
   }).catch((e)=>{
+    winston.getlog().error(`发生异常:`);
+    winston.getlog().error(e);
     callbackfn(null,true);
   });
 };
