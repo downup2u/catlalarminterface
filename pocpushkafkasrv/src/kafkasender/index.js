@@ -44,22 +44,23 @@ const startsrv = (callbackfn)=>{
     debug(err.stack);
     debug(`uncaughtException err---`);
   },({key,notify_partition,notify_offset,notify_topic})=>{
-    setCATLAlaramPushed(key,(err,result)=>{
-      debug(`setCATLAlaramPushed===>${key}`);
-    });
-    const notify_time = moment().format('YYYY-MM-DD HH:mm:ss');
-    const dbModelKafka = DBModels.RealtimeAlarmHourKafkaModel;
-    dbModelKafka.findOneAndUpdate({idsend:key},{
-        $set:{
-          notify_time,
-          notify_partition,
-          notify_offset,
-          notify_topic
-        }
-      },{new:true}).lean().exec((err,result)=>{
-
+    if(notify_offset > 0){//注意：如果为0，则表示下次需要继续发送一次
+      setCATLAlaramPushed(key,(err,result)=>{
+        debug(`setCATLAlaramPushed===>${key}`);
       });
+      const notify_time = moment().format('YYYY-MM-DD HH:mm:ss');
+      const dbModelKafka = DBModels.RealtimeAlarmHourKafkaModel;
+      dbModelKafka.findOneAndUpdate({idsend:key},{
+          $set:{
+            notify_time,
+            notify_partition,
+            notify_offset,
+            notify_topic
+          }
+        },{new:true}).lean().exec((err,result)=>{
 
+        });
+    }
   }).then((producer)=>{
     const userDeviceSubscriber = ( msg, data )=>{
         pushtokafkasrv(data.topic,data.payload,producer);
