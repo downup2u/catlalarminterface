@@ -145,14 +145,14 @@ const matchalarm = (alarmdata,callback)=>{
 }
 
 const getCurHour = (DataTime)=>{
-  if(!DataTime){
-    DataTime = moment().format('YYYY-MM-DD HH:mm:ss');
-  }
-  // const SpecialCurHourTime = moment(DataTime).format('YYYY-MM-DD') + config.SpecialCurHourTime;
-  // return moment(DataTime).format('YYYY-MM-DD');//SpecialCurHourTime;
-  const momentDatetime = moment(DataTime);
-  const CurDayHour = momentDatetime.format('YYYYMMDDHH');
-
+  // if(!DataTime){
+  //   DataTime = moment().format('YYYY-MM-DD HH:mm:ss');
+  // }
+  // // const SpecialCurHourTime = moment(DataTime).format('YYYY-MM-DD') + config.SpecialCurHourTime;
+  // // return moment(DataTime).format('YYYY-MM-DD');//SpecialCurHourTime;
+  // const momentDatetime = moment(DataTime);
+  // const CurDayHour = momentDatetime.format('YYYYMMDDHH');
+  const CurDayHour = moment().format('YYYYMMDDHH');
   //算今天
   // debug(`DataTime:${DataTime},统计入:${CurDayHour}中`);
   return CurDayHour;
